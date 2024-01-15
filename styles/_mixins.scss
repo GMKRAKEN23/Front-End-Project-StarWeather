@@ -1,0 +1,37 @@
+@mixin flex-container($direction: row, $justify: center, $align: center, $wrap: wrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+}
+
+@mixin text-custom($font_size, $font_weight, $text_color, $text_transform, $letter_spacing) {
+    font-size: $font_size;
+    font-weight: $font_weight;
+    color: $text_color;
+    text-transform: $text_transform;
+    letter-spacing: $letter_spacing;
+}
+
+@mixin dimensions($width: auto, $height: auto) {
+    width: $width;
+    height: $height;
+}
+
+@mixin border-properties($border_style: $border_solid, $border_width: $border, $border_color: black, $radius:$border_radius_none) {
+    border-radius: $radius;
+    border: $border-width $border_style $border-color;
+}
+
+@mixin media-maxwidth($screensize) {
+    @media (max-width: $screensize) {
+        @content;
+    }
+}
+
+@mixin media-minwidth($screensize) {
+    @media (min-width: $screensize) {
+        @content;
+    }
+}

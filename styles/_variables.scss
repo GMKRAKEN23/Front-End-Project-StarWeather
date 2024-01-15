@@ -1,0 +1,84 @@
+// Font Size
+$font_size_1: 1rem;
+$font_size_1_1: 1.1rem;
+$font_size_1_2: 1.2rem;
+$font_size_1_5: 1.5rem;
+$font_size_2: 2rem;
+$font_size_2_5: 2.5rem;
+$font_size_3: 3rem;
+$font_size_3_5: 3.5rem;
+$font_size_4_xl: 4rem;
+
+// Text Transform 
+$text_transform_uppercase: uppercase;
+$text_transform_lowercase: lowercase;
+$text-transform_capitalize: capitalize;
+$text_transform_none: none;
+
+// Text center
+$text_align_center: center;
+$text_align_right: right;
+$text_align_left: left;
+
+// Background 
+$background_transparent: transparent;
+$background_size_cover: cover;
+$background_position_center: center;
+$background_repeat: repeat;
+$background_no_repeat: no-repeat;
+
+// Colors 
+$primary_color_strong_blue: #0b265b;
+$primary_color_gold : #e8c888;
+$primary_color_strong_gold : #e49800;
+$primary_color_sky_blue: #34c5f0;
+$strong_black: #1e1c1c;
+$neutral_white: #fbfafa;
+$medium_white: #f6efef;
+
+// Font Weight
+$font_weight_light: 500;
+$font_weight_medium: 700;
+$font_weight_strong: 900;
+$font_weight_normal: normal;
+
+// Letter Spacing
+$letter_spacing_light: 1px;
+$letter_spacing_medium : 2px;
+$letter_spacing_strong: 3px;
+
+// Cursor 
+$cursor_pointer: pointer;
+
+// Border
+$border_solid: solid;
+$border_width_1: 1px;
+$border-width_2: 2px;
+$border_width_3: 3px;
+$border_radius_5: 5px;
+$border_radius_10: 10px;
+$border_radius_15: 15px;
+$border_radius_20: 20px;
+$border_radius_none: 0;
+
+// Flex
+$flex_direction_row: row;
+$flex_direction_column: column;
+$flex_wrap: wrap;
+$flex_no_wrap: nowrap;
+$justify_content_center: center;
+$justify_content_space_around: space-around;
+$justify_content_space_between: space-between;
+$justify_content_space_evenly: space-evenly;
+$justify_content_flex-end: flex-end;
+$align_items_center: center;
+
+// postion
+
+$position_relative: relative;
+$position_absolute: absolute;
+
+// Media Queries Size
+$deskop_size: 1024px;
+$tablet_size: 779px;
+$smartphone_size: 375px;
