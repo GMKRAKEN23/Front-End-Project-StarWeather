@@ -5,19 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>starwheater</title>
     <link rel="stylesheet" href="styles/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
+    <!-- header -->
     <header class="header">
         <div class="header_logo">
           <img src="asset/logo.png" class="header_image" alt="logo_starweather" width="100px" height="95px">
-          <h1 class="header_title">StarWeather</h1>  
+          <h1 class="header_title">Star<span class="header_title_w">W</span>eather</h1>  
         </div>
-        
-        <p class="header_title_autor">By GMKRAKEN23</p>
+        <p class="header_title_autor"><span class="header_title_autor_by">By</span> GMKRAKEN23</p>
     </header>
+    <!-- header_end -->
+    <!-- main -->
     <main class="main">
-        <h2 class="main_title">Choose your city</h2>
-        <input type="text" id="input_city" class="main_input" placeholder="ex: Brussels">
+        <h2 class="main_title">Choose <span class="main_title_letter">y</span>our <span class="main_title_letter">c</span>ity</h2>
+        <!-- input_for_choose_city -->
+        <input type="text" id="input_city" class="main_input" placeholder="ex: Brussels" required list="wheather_city">
+        <datalist id="wheather_city">
+            <option value="Brussels"></option>
+            <option value="Paris"></option>
+            <option value="Amsterdam"></option>
+            <option value="London"></option>
+            <option value="Berlin"></option>
+            <option value="Rome"></option>
+            <option value="Tokyo"></option>
+            <option value="Sydney"></option>
+            <option value="Lima"></option>
+            <option value="Dubai"></option>
+            <option value="Rio de Janeiro"></option>
+        </datalist>
+        <!-- input_for_choose_city -->
+        <section class="main_section_card_city_weather"></section>
     </main>
+    <!-- main_end -->
+    <script src="js/wheather_features.js"></script>
 </body>
 </html>

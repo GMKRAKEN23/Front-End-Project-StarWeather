@@ -12,7 +12,6 @@ body {
     background: $primary_color_strong_blue;
     font-size: 16px;
     font-family: Helvetica;
-    overflow: hidden;
 }
 
 .header {
@@ -24,9 +23,12 @@ body {
         @include flex-container($direction: $flex_direction_column, $justify: $justify_content_center, $align: $align_items_center, $wrap: $flex-wrap);
 
         .header_title {
-            @include text-custom($font_size_1_5, $font_weight_light, $primary_color_gold, $text-transform_capitalize, $letter_spacing_medium);
+            @include text-custom($font_size_1_5, $font_weight_light, $primary_color_gold, $text-transform_capitalize, $letter_spacing_strong);
 
             &::first-letter {
+                color: $primary_color_sky_blue;
+            }
+            .header_title_w{
                 color: $primary_color_sky_blue;
             }
         }
@@ -34,14 +36,16 @@ body {
     }
 
     .header_title_autor {
-        @include text-custom($font_size_1_1, $font_weight_medium, $primary_color_gold, $text_transform_uppercase, $letter_spacing_medium);
+        @include text-custom($font_size_1_1, $font_weight_medium, $primary_color_gold, $text_transform_uppercase, $letter_spacing_strong);
         color: $primary_color_gold;
+
+        .header_title_autor_by{
+            color: $primary_color_sky_blue;
+        }
 
         @include media-maxwidth($tablet_size) {
             display: none;
         }
-
-        ;
     }
 }
 
@@ -56,10 +60,16 @@ body {
         @include text-custom($font_size_1_5, $font_weight_medium, $primary_color_gold, $text_transform_capitalize, $letter_spacing_medium);
         text-align: $text_align_center;
         margin: 25px;
+        &::first-letter{
+            color: $primary_color_sky_blue;
+        }
+        .main_title_letter{
+            color: $primary_color_sky_blue;
+        }
     }
 
     .main_input {
-        @include text-custom($font_size_1, $font_weight_strong, $primary_color_strong_gold, $text_transform_capitalize, $letter_spacing_medium);
+        @include text-custom($font_size_1, $font_weight_strong, $primary_color_strong_blue, $text_transform_capitalize, $letter_spacing_medium);
         @include border-properties($border_style: $border_solid, $border_width: $border-width_2, $border_color: black, $radius: $border_radius_15);
 
         @include media-minwidth($smartphone_size) {
@@ -76,7 +86,68 @@ body {
         margin: 0 auto;
         padding: 8px 15px;
         background: $medium_white;
-        outline: none;
-        
+        outline: none;   
+    }
+}
+
+.main_section_card_city_weather{
+    margin: 20px auto;
+    width: 90%;
+    //background: red;
+    @include flex-container($direction: row, $justify: center, $align: center, $wrap: wrap);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .main_section_card_city_weather_article{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        min-width: 270px;
+        width: 25%;
+        height: 350px;
+        margin: 10px;
+        border: solid 2px white;
+        border-radius: $border_radius_10;
+        background: $primary_color_strong_blue;
+        box-shadow: 0 0 10px wheat;
+        transition: 1s;
+        .main_section_card_city_weather_article_header{
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 10px;
+            .main_section_card_city_weather_article_header_min_temp{
+                color: $primary_color_sky_blue;
+                font-weight: $font_weight_medium;
+            }
+            .main_section_card_city_weather_article_header_max_temp{
+                color: $primary_color_sky_blue;
+                font-weight: $font_weight_medium;
+            }
+        }
+        .main_section_card_city_weather_article_title{
+            @include text-custom($font_size_1_5, $font_weight_medium, white, $text_transform_capitalize, $letter_spacing_strong);
+            text-align: $text_align_center;
+            padding: 10px;
+        }
+        .main_section_card_city_weather_article_image{
+            display: flex;
+            justify-content: center;
+            width: 60%;
+            height: 200px;            
+            margin: 0 auto;
+        }
+        .main_section_card_city_weather_article_footer{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            .main_section_card_city_weather_article_footer_humidity{
+                color: $primary_color_sky_blue;
+                font-weight: $font_weight_medium;
+            }
+            .main_section_card_city_weather_article_footer_wind_speed{
+                color: $primary_color_sky_blue;
+                font-weight: $font_weight_medium;
+            }
+        }
     }
 }

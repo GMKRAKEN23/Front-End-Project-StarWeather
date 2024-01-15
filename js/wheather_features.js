@@ -49,7 +49,7 @@ document.getElementById('input_city').addEventListener('keypress', async functio
 
         // create windspeed and add in the footerCard
         const windSpeed = document.createElement('p');
-        humidity.classList.add('main_section_card_city_weather_article_footer_wind_speed');
+        windSpeed.classList.add('main_section_card_city_weather_article_footer_wind_speed');
         footerCard.appendChild(windSpeed);
         
         if (inputCity !== '') {
@@ -78,7 +78,11 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                 const windSpeedValue = data.wind_speed;
                 windSpeed.innerHTML = `wind ${windSpeedValue} km/h`;
                 const tempValue = data.temp;
-                nameCity.innerHTML = `${inputCity} ${tempValue}°C`;   
+                nameCity.innerHTML = `${inputCity} ${tempValue}°C`;
+                
+                if(tempValue > 20 && tempValue < 40){
+                    image.setAttribute('src', 'asset/clear.png');  
+                }
                 
             } catch (error) {
                 console.error('Erreur: ', error);
