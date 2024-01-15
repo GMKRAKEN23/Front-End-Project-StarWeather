@@ -8,7 +8,7 @@ document.getElementById('input_city').addEventListener('keypress', async functio
         // create and add articleCard in the sectionCard
         const sectionCard = document.querySelector('.main_section_card_city_weather');
         const articleCard = document.createElement('article');  
-        articleCard.classList.add('main_section_card_city_weather_article');         
+        articleCard.classList.add('main_section_card_city_weather_article');    
         sectionCard.appendChild(articleCard);
 
         // create and add headerCard in the articleCard
@@ -30,7 +30,7 @@ document.getElementById('input_city').addEventListener('keypress', async functio
         const nameCity = document.createElement('h2');
         nameCity.classList.add('main_section_card_city_weather_article_title');
         articleCard.appendChild(nameCity);
-        nameCity.innerHTML = inputCity;
+
 
         // create image and add in the articleCard
         const image = document.createElement('img');
@@ -48,7 +48,9 @@ document.getElementById('input_city').addEventListener('keypress', async functio
         footerCard.appendChild(humidity);
 
         // create windspeed and add in the footerCard
-        const 
+        const windSpeed = document.createElement('p');
+        humidity.classList.add('main_section_card_city_weather_article_footer_wind_speed');
+        footerCard.appendChild(windSpeed);
         
         if (inputCity !== '') {
             try {
@@ -73,6 +75,10 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                 maxTemp.innerHTML = `max. ${maxTempValue} °C`;
                 const humidityValue = data.humidity;
                 humidity.innerHTML = `humidity ${humidityValue} %`;
+                const windSpeedValue = data.wind_speed;
+                windSpeed.innerHTML = `wind ${windSpeedValue} km/h`;
+                const tempValue = data.temp;
+                nameCity.innerHTML = `${inputCity} ${tempValue}°C`;   
                 
             } catch (error) {
                 console.error('Erreur: ', error);
