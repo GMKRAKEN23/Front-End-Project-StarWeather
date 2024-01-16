@@ -1,16 +1,17 @@
 document.getElementById('input_city').addEventListener('keypress', async function getWeather(event) {
-    // Déclaration de la variable joursSemaine
-    const joursSemaine = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+    // Declare variable days of the week
+    const daysWeek = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
 
     if (event.key === 'Enter') {
-        event.preventDefault();
+        event.preventDefault(); // Prevents page from loading
 
         const inputCity = document.getElementById('input_city').value;
 
-        let APIKey = '62e06e216d252c066ca0c7c7a9ef6314';
+        const APIKey = '62e06e216d252c066ca0c7c7a9ef6314'; // Api Key openweather
+
         if (inputCity !== '') {
             try {
-                // Utilisez l'endpoint forecast pour obtenir les prévisions pour les 5 prochains jours
+                // Use API openweather and add city and API key
                 const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${inputCity}&appid=${APIKey}&units=metric`);
 
                 // await response of the data API and response in json
@@ -21,31 +22,63 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                     throw new Error('Erreur lors de la requête à l\'API');
                 }
 
-                // Supprimez les cartes existantes avant d'ajouter de nouvelles
+                // Remove existing cards before adding new ones
                 const sectionCard = document.querySelector('.main_section_card_city_weather');
                 sectionCard.innerHTML = '';
-
-                // Affichez les prévisions pour les 5 prochains jours
+                
+                // Loop for create and add element weather for five days (five cards)
                 for (let i = 0; i < 5; i++) {
-                    const forecastData = data.list[i * 8]; // Les données pour chaque jour sont généralement toutes les 8 heures
+                    const forecastData = data.list[i * 8];
 
-                    // Créez une nouvelle carte pour chaque jour
+                    // Create and add WeatherCard in the Section Card
                     const articleCard = document.createElement('article');
                     articleCard.classList.add('main_section_card_city_weather_article');
                     sectionCard.appendChild(articleCard);
 
-                    // Utilisez le bloc de code suivant pour afficher les informations de chaque jour
-                    // Assurez-vous d'ajuster le format selon vos besoins
-                    const datePara = document.createElement('p');
-                    datePara.className = 'div_date';
-                    let date = new Date(forecastData.dt * 1000);
-                    datePara.textContent = joursSemaine[date.getDay()] + " " + forecastData.dt_txt.split(' ')[0];
-                    articleCard.appendChild(datePara);
+                    // Create and add HeaderCard in the WeatherCard 
+                    const headerCard = document.createElement('header');
+                    headerCard.classList.add('main_section_card_city_weather_article_header');
+                    articleCard.appendChild(headerCard);
 
+                    // Create and add Date in the HeaderCard
+                    const datePara = document.createElement('p');
+                    datePara.className = 'main_section_card_city_weather_article_date';
+                    let date = new Date(forecastData.dt * 1000);
+                    datePara.textContent = daysWeek[date.getDay()] + " " + forecastData.dt_txt.split(' ')[0];
+                    headerCard.appendChild(datePara);
+
+                    // Create and add Title City in the ArticleCard
+                    const title = document.createElement('h2');
+                    title.className = 'main_section_card_city_weather_article_title';
+                    const tempValue = Math.round(forecastData.main.temp);
+                    title.innerHTML = `${inputCity} ${tempValue} °C`;
+                    articleCard.appendChild(title);
+
+                    // Create and add Image weather in the ArticleCard
                     const image = document.createElement('img');
                     image.classList.add('main_section_card_city_weather_article_image');
                     articleCard.appendChild(image);
 
+                    // Create and add FooterCard in the ArticleCard
+                    const footerCard = document.createElement('footer');
+                    footerCard.className = 'main_section_card_city_weather_article_footer';
+                    articleCard.appendChild(footerCard);
+
+                    // Create and add Wind Speed in the FooterCard
+                    const windSpeed = document.createElement('p');
+                    windSpeed.className = 'main_section_card_city_weather_article_footer_wind_speed';
+                    const windSpeedValue = forecastData.wind.speed * 3.6;
+                    windSpeed.innerHTML = `Wind: ${windSpeedValue.toFixed(1)} km/h`;
+                    footerCard.appendChild(windSpeed);
+
+                    // Create and add Humidity in the FooterCard
+                    const humidity = document.createElement('p');
+                    humidity.className = 'main_section_card_city_weather_article_footer_humidity';
+                    const humidityValue = forecastData.main.humidity;
+                    humidity.innerHTML = `hum.: ${humidityValue} %`;
+                    footerCard.appendChild(humidity);
+
+                    // Accesses the main property of the weather object and adds an image according to the weather
                     if (forecastData.weather[0].main == "Clouds") {
                         image.src = "asset/clouds.png";
                     } else if (forecastData.weather[0].main == "Clear") {
@@ -59,16 +92,14 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                     } else if (forecastData.weather[0].main == "Snow") {
                         image.src = "asset/snow.png";
                     }
-
-                    // Ajoutez d'autres informations que vous souhaitez afficher (température, etc.)
                 }
 
             } catch (error) {
-                console.error('Erreur: ', error);
-                alert('Veuillez saisir une ville valide !');
+                console.error('Error: ', error); // Show errors
+                alert('Please enter a valid city!');
             }
         } else {
-            alert('Veuillez saisir une ville !');
+            alert('Please enter a city!');
         }
     }
 });

@@ -1,3 +1,4 @@
+// mixin flex
 @mixin flex-container($direction: row, $justify: center, $align: center, $wrap: wrap) {
     display: flex;
     flex-direction: $direction;
@@ -6,6 +7,7 @@
     flex-wrap: $wrap;
 }
 
+// mixin text-custom
 @mixin text-custom($font_size, $font_weight, $text_color, $text_transform, $letter_spacing) {
     font-size: $font_size;
     font-weight: $font_weight;
@@ -14,22 +16,26 @@
     letter-spacing: $letter_spacing;
 }
 
+// mixin dimensions
 @mixin dimensions($width: auto, $height: auto) {
     width: $width;
     height: $height;
 }
 
+// mixin border and border radius
 @mixin border-properties($border_style: $border_solid, $border_width: $border, $border_color: black, $radius:$border_radius_none) {
     border-radius: $radius;
     border: $border-width $border_style $border-color;
 }
 
+// mixin media queries max-width 
 @mixin media-maxwidth($screensize) {
     @media (max-width: $screensize) {
         @content;
     }
 }
 
+// mixin media queries min-width
 @mixin media-minwidth($screensize) {
     @media (min-width: $screensize) {
         @content;
