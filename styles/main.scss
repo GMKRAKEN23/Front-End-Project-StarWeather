@@ -96,11 +96,9 @@ body {
 .main_section_card_city_weather {
     margin: 20px auto;
     width: 90%;
-    @include flex-container($direction: row, $justify: $justify_content_space_between, $align: $align_items_center, $wrap: $flex-wrap);
+    @include flex-container($direction: $flex_direction_row, $justify: $justify_content_center, $align: $align_items_center, $wrap: $flex-wrap);
     .main_section_card_city_weather_article {
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
+        @include flex-container($direction: $flex_direction_column, $justify: $justify_content_space_around);
         min-width: 270px;
         width: 25%;
         height: 350px;
@@ -112,16 +110,6 @@ body {
             display: flex;
             justify-content: space-between;
             padding: 5px 10px;
-
-            .main_section_card_city_weather_article_header_min_temp {
-                color: $primary_color_sky_blue;
-                font-weight: $font_weight_medium;
-            }
-
-            .main_section_card_city_weather_article_header_max_temp {
-                color: $primary_color_sky_blue;
-                font-weight: $font_weight_medium;
-            }
         }
 
         .main_section_card_city_weather_article_title {
@@ -141,7 +129,7 @@ body {
         .main_section_card_city_weather_article_footer {
             display: flex;
             justify-content: space-between;
-            padding: 10px;
+        
 
             .main_section_card_city_weather_article_footer_humidity {
                 color: $primary_color_sky_blue;
