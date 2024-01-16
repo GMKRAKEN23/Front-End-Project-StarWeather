@@ -130,10 +130,10 @@ body {
   text-transform: capitalize;
   letter-spacing: 2px;
   border-radius: 15px;
-  border: 2px solid black;
+  border: 2px solid #e8c888;
   margin: 0 auto;
   padding: 8px 15px;
-  background: #f6efef;
+  background: #e8c888;
   outline: none;
 }
 @media (min-width: 375px) {
@@ -157,11 +157,8 @@ body {
   width: 90%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
 }
 .main_section_card_city_weather .main_section_card_city_weather_article {
@@ -172,11 +169,8 @@ body {
   width: 25%;
   height: 350px;
   margin: 10px;
-  border: solid 2px white;
   border-radius: 10px;
-  background: #0b265b;
-  box-shadow: 0 0 10px wheat;
-  transition: 1s;
+  border: solid 3px #e8c888;
 }
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_header {
   display: flex;
@@ -194,7 +188,7 @@ body {
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: white;
+  color: #e8c888;
   text-transform: capitalize;
   letter-spacing: 3px;
   text-align: center;

@@ -1,9 +1,8 @@
-document.getElementById('input_city').addEventListener('keypress', async function(event) {
+document.getElementById('input_city').addEventListener('keypress', async function getWeather(event) {
     if (event.key === 'Enter') {
         event.preventDefault();  
 
         const inputCity = document.getElementById('input_city').value;
-        const KeyApi = 'YBNbEVwFBvti2RX9VxAlkA==CeOrC5fOrTggFKhJ'; 
 
         // create and add articleCard in the sectionCard
         const sectionCard = document.querySelector('.main_section_card_city_weather');
@@ -54,36 +53,43 @@ document.getElementById('input_city').addEventListener('keypress', async functio
         
         if (inputCity !== '') {
             try {
-                const response = await fetch(`https://api.api-ninjas.com/v1/weather?city=${inputCity}`, {
-                    method: 'GET',
-                    headers: {
-                        'X-Api-Key': KeyApi,
-                        'Content-Type': 'application/json',
-                    },
-                });
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&appid=a21b8d784d86024e07869fbc550b7d65&units=metric`);
+                
+                // await response of the data API and response in json
+                const data = await response.json(); 
+                console.log(data);
+
                 
                 if (!response.ok) {
                     throw new Error('Erreur lors de la requête à l\'API');
                 }
 
-                // await response of the data API and response in json
-                const data = await response.json();
-
-                const minTempValue = data.min_temp;
+                // add value weather in the articleCard
+                const minTempValue = Math.round(data.main.temp_min);
                 minTemp.innerHTML = `min. ${minTempValue} °C`;
-                const maxTempValue = data.max_temp;
+                const maxTempValue = Math.round(data.main.temp_max);
                 maxTemp.innerHTML = `max. ${maxTempValue} °C`;
-                const humidityValue = data.humidity;
+                const humidityValue = Math.round(data.main.humidity);
                 humidity.innerHTML = `humidity ${humidityValue} %`;
-                const windSpeedValue = data.wind_speed;
+                const windSpeedValue = Math.round(data.wind.speed) * 3.6;
                 windSpeed.innerHTML = `wind ${windSpeedValue} km/h`;
-                const tempValue = data.temp;
+                const tempValue = Math.round(data.main.temp);
                 nameCity.innerHTML = `${inputCity} ${tempValue}°C`;
-                
-                if(tempValue > 20 && tempValue < 40){
-                    image.setAttribute('src', 'asset/clear.png');  
-                }
-                
+
+                if (data.weather[0].main == "Clouds") {
+                    image.src = "asset/clouds.png";
+                } else if (data.weather[0].main == "Clear") {
+                    image.src = "asset/clear.png";
+                } else if (data.weather[0].main == "Rain") {
+                    image.src = "asset/rain.png";
+                } else if (data.weather[0].main == "Drizzle") {
+                    image.src = "asset/drizzle.png";
+                } else if (data.weather[0].main == "Mist") {
+                    image.src = "asset/mist.png";
+                } else if (data.weather[0].main == "Snow") {
+                    image.src = "asset/snow.png";
+                } 
+                   
             } catch (error) {
                 console.error('Erreur: ', error);
                 alert('Veuillez saisir une ville valide !');
