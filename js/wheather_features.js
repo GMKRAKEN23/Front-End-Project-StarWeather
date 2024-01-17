@@ -25,7 +25,7 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                 // Remove existing cards before adding new ones
                 const sectionCard = document.querySelector('.main_section_card_city_weather');
                 sectionCard.innerHTML = '';
-                
+
                 // Loop for create and add element weather for five days (five cards)
                 for (let i = 0; i < 5; i++) {
                     const forecastData = data.list[i * 8];
@@ -77,6 +77,20 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                     const humidityValue = forecastData.main.humidity;
                     humidity.innerHTML = `hum.: ${humidityValue} %`;
                     footerCard.appendChild(humidity);
+
+                    // Add class design one for change design
+                    boxDesignOne.addEventListener('click', function () {
+                        articleCard.classList.toggle('active_design_one');
+                        articleCard.style.transition = ".5s";
+                        datePara.classList.toggle('active_design_one');
+                        datePara.style.transition = ".5s";
+                        title.classList.toggle('active_design_one');
+                        title.style.transition = ".5s";
+                        windSpeed.classList.toggle('active_design_one');
+                        windSpeed.style.transition = ".5s";
+                        humidity.classList.toggle('active_design_one');
+                        humidity.style.transition = ".5s";
+                    });
 
                     // Accesses the main property of the weather object and adds an image according to the weather
                     if (forecastData.weather[0].main == "Clouds") {

@@ -136,6 +136,10 @@ body.active_design_one {
   cursor: pointer;
   font-size: 1.5rem;
   color: #e8c888;
+  transition: 0.5s;
+}
+.header .header_painting .bxs-palette.active_design_one {
+  color: #ffffff;
 }
 .header .header_title_autor {
   font-size: 1.1rem;
@@ -179,18 +183,12 @@ body.active_design_one {
   margin: 25px;
   transition: 0.5s;
 }
-.main .main_title::first-letter {
-  color: #34c5f0;
-}
 .main .main_title .main_title_letter {
   transition: 0.5s;
   color: #34c5f0;
 }
 .main .main_title.active_design_one {
   color: #bfa599;
-}
-.main .main_title.active_design_one::first-letter {
-  color: #ffffff;
 }
 .main .main_title.active_design_one .main_title_letter {
   color: #ffffff;
@@ -208,6 +206,7 @@ body.active_design_one {
   padding: 8px 15px;
   background: #e8c888;
   outline: none;
+  transition: 0.5s;
 }
 @media (min-width: 375px) {
   .main .main_input {
@@ -267,6 +266,9 @@ body.active_design_one {
   /* Card_weather_city_footer */
   /* Card_weather_footer */
 }
+.main_section_card_city_weather .main_section_card_city_weather_article.active_design_one {
+  border: solid 3px #bfa599;
+}
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_header {
   display: flex;
   justify-content: space-between;
@@ -276,6 +278,9 @@ body.active_design_one {
   color: #34c5f0;
   font-weight: 700;
 }
+.main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_header .main_section_card_city_weather_article_date.active_design_one {
+  color: #ffffff;
+}
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_title {
   font-size: 1.5rem;
   font-weight: 700;
@@ -284,6 +289,9 @@ body.active_design_one {
   letter-spacing: 3px;
   text-align: center;
   padding: 10px;
+}
+.main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_title.active_design_one {
+  color: #bfa599;
 }
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_image {
   display: flex;
@@ -307,9 +315,15 @@ body.active_design_one {
   color: #34c5f0;
   font-weight: 700;
 }
+.main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_footer .main_section_card_city_weather_article_footer_humidity.active_design_one {
+  color: #ffffff;
+}
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_footer .main_section_card_city_weather_article_footer_wind_speed {
   color: #34c5f0;
   font-weight: 700;
+}
+.main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_footer .main_section_card_city_weather_article_footer_wind_speed.active_design_one {
+  color: #ffffff;
 }
 
 /* main_end *//*# sourceMappingURL=main.css.map */
