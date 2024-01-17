@@ -54,6 +54,10 @@ body {
   background: #0b265b;
   font-size: 16px;
   font-family: Helvetica;
+  transition: 0.5s;
+}
+body.active_design_one {
+  background: #222223;
 }
 
 /* header */
@@ -80,12 +84,24 @@ body {
   color: #e8c888;
   text-transform: capitalize;
   letter-spacing: 3px;
-}
-.header .header_logo .header_title::first-letter {
-  color: #34c5f0;
+  transition: 0.5s;
 }
 .header .header_logo .header_title .header_title_w {
   color: #34c5f0;
+  transition: 0.5s;
+}
+.header .header_logo .header_title .header_title_s {
+  color: #34c5f0;
+  transition: 0.5s;
+}
+.header .header_logo .header_title.active_design_one {
+  color: #bfa599;
+}
+.header .header_logo .header_title.active_design_one .header_title_w {
+  color: #ffffff;
+}
+.header .header_logo .header_title.active_design_one .header_title_s {
+  color: #ffffff;
 }
 .header .header_painting {
   display: flex;
@@ -98,11 +114,16 @@ body {
   justify-content: space-around;
   align-items: center;
   margin: 10px 0;
+  background: #e8c888;
   border: solid 3px #34c5f0;
   border-radius: 10px;
   width: 170px;
   height: 40px;
-  background-color: #e8c888;
+  transition: 0.5s;
+}
+.header .header_painting .header_painting_container.active_design_one {
+  background: #bfa599;
+  border: solid 3px #ffffff;
 }
 .header .header_painting .header_painting_container .header_painting_container_box {
   width: 18px;
@@ -126,6 +147,10 @@ body {
 }
 .header .header_title_autor .header_title_autor_by {
   color: #34c5f0;
+  transition: 0.5s;
+}
+.header .header_title_autor .header_title_autor_by.active_design_one {
+  color: #ffffff;
 }
 @media (max-width: 779px) {
   .header .header_title_autor {
@@ -152,12 +177,23 @@ body {
   letter-spacing: 2px;
   text-align: center;
   margin: 25px;
+  transition: 0.5s;
 }
 .main .main_title::first-letter {
   color: #34c5f0;
 }
 .main .main_title .main_title_letter {
+  transition: 0.5s;
   color: #34c5f0;
+}
+.main .main_title.active_design_one {
+  color: #bfa599;
+}
+.main .main_title.active_design_one::first-letter {
+  color: #ffffff;
+}
+.main .main_title.active_design_one .main_title_letter {
+  color: #ffffff;
 }
 .main .main_input {
   font-size: 1rem;
@@ -167,6 +203,7 @@ body {
   letter-spacing: 2px;
   border-radius: 15px;
   border: 2px solid #e8c888;
+  transition: 0.5s;
   margin: 0 auto;
   padding: 8px 15px;
   background: #e8c888;
@@ -186,6 +223,16 @@ body {
   .main .main_input {
     width: 40%;
   }
+}
+.main .main_input.active_design_one {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  border-radius: 15px;
+  border: 2px solid #bfa599;
+  background: #bfa599;
 }
 
 .main_section_card_city_weather {

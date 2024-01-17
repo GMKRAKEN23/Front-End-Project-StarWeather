@@ -12,6 +12,11 @@ body {
     background: $primary_color_strong_blue;
     font-size: 16px;
     font-family: Helvetica;
+    transition: 0.5s;
+
+    &.active_design_one{
+        background: $primary_color_black;
+    }
 }
 
 /* header */
@@ -24,14 +29,29 @@ body {
 
         .header_title {
             @include text-custom($font_size_1_5, $font_weight_light, $primary_color_gold, $text-transform_capitalize, $letter_spacing_strong);
+            transition: 0.5s;
 
-            &::first-letter {
+            .header_title_w{
                 color: $primary_color_sky_blue;
+                transition: 0.5s;
+            }
+            .header_title_s {
+                color: $primary_color_sky_blue;
+                transition: 0.5s;
             }
 
-            .header_title_w {
-                color: $primary_color_sky_blue;
+            &.active_design_one {
+                color: $primary_color_pale_brown_gray;
+
+                .header_title_w{
+                    color: $primary_color_white;
+                }
+                .header_title_s {
+                    color: $primary_color_white;
+                }
             }
+
+
         }
     }
 
@@ -46,11 +66,18 @@ body {
             justify-content: space-around;
             align-items: center;
             margin: 10px 0;
+            background: $primary_color_gold;
             border: solid 3px $primary_color_sky_blue;
             border-radius: 10px;
             width: 170px;
             height: 40px;
-            background-color: $primary_color_gold;
+            transition: 0.5s;
+
+            &.active_design_one{
+                background: $primary_color_pale_brown_gray;
+                border: solid 3px $primary_color_white;
+            }
+
             .header_painting_container_box{
                 width: 18px;
                 height: 18px;
@@ -73,6 +100,10 @@ body {
 
         .header_title_autor_by {
             color: $primary_color_sky_blue;
+            transition: 0.5s;
+            &.active_design_one{
+                color: $primary_color_white;
+            }
         }
 
         @include media-maxwidth($tablet_size) {
@@ -95,13 +126,25 @@ body {
         @include text-custom($font_size_1_5, $font_weight_medium, $primary_color_gold, $text_transform_capitalize, $letter_spacing_medium);
         text-align: $text_align_center;
         margin: 25px;
+        transition: 0.5s;
 
         &::first-letter {
             color: $primary_color_sky_blue;
         }
 
         .main_title_letter {
+            transition: 0.5s;
             color: $primary_color_sky_blue;
+        }
+
+        &.active_design_one{
+           color: $primary_color_pale_brown_gray; 
+           &::first-letter{
+            color: $primary_color_white;
+           }
+           .main_title_letter{
+            color: $primary_color_white;
+           }
         }
     }
 
@@ -109,6 +152,7 @@ body {
     .main_input {
         @include text-custom($font_size_1, $font_weight_strong, $primary_color_strong_blue, $text_transform_capitalize, $letter_spacing_medium);
         @include border-properties($border_style: $border_solid, $border_width: $border-width_2, $border_color: $primary_color_gold, $radius: $border_radius_15);
+        transition: 0.5s;
 
         @include media-minwidth($smartphone_size) {
             width: 80%;
@@ -126,6 +170,12 @@ body {
         padding: 8px 15px;
         background: $primary_color_gold;
         outline: none;
+
+        &.active_design_one{
+            @include text-custom($font_size_1, $font_weight_strong, $primary_color_white, $text_transform_capitalize, $letter_spacing_medium);
+            @include border-properties($border_style: $border_solid, $border_width: $border-width_2, $border_color: $primary_color_pale_brown_gray, $radius: $border_radius_15);
+            background: $primary_color_pale_brown_gray; 
+        }
     }
 
     /* main input_end */
