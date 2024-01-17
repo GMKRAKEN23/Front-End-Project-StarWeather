@@ -88,6 +88,15 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                         });
                     });
 
+                    boxDesignTwo.addEventListener('click', function () {
+                        const elementsToggleTwo = [articleCard, datePara, title, windSpeed, humidity];
+                    
+                        elementsToggleTwo.forEach(element => {
+                            element.classList.toggle('active_design_two');
+                            element.style.transition = ".5s";
+                        });
+                    });
+
                     boxDesignThree.addEventListener('click', function () {
                         const elementsToggleThree = [articleCard, datePara, title, windSpeed, humidity];
                     

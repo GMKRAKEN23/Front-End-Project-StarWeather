@@ -1,4 +1,5 @@
 const boxDesignOne = document.getElementById('box_design_one');
+const boxDesignTwo = document.getElementById('box_design_two');
 const boxDesignThree = document.getElementById('box_design_three');
 
 const body = document.querySelector('body');
@@ -27,6 +28,21 @@ boxDesignOne.addEventListener('click', function () {
     titleAutor.classList.toggle('active_design_one');
     containerPainting.classList.toggle('active_design_one');
     paintingIcon.classList.toggle('active_design_one');
+    isLogo1 = !isLogo1;
+    imgLogo.src = isLogo1 ? 'asset/logo.png' : 'asset/logo_1.png';
+})
+
+boxDesignTwo.addEventListener('click', function () {
+    body.classList.toggle('active_design_two');
+    headerTitle.classList.toggle('active_design_two');
+    headerTitleS.classList.toggle('active_design_two');
+    headerTitleW.classList.toggle('active_design_two');
+    inputMain.classList.toggle('active_design_two');
+    mainTitle.classList.toggle('active_design_two');
+    titleAutorBy.classList.toggle('active_design_two');
+    titleAutor.classList.toggle('active_design_two');
+    containerPainting.classList.toggle('active_design_two');
+    paintingIcon.classList.toggle('active_design_two');
     isLogo1 = !isLogo1;
     imgLogo.src = isLogo1 ? 'asset/logo.png' : 'asset/logo_2.png';
 })

@@ -18,6 +18,10 @@ body {
         background: $primary_color_black;
     }
 
+    &.active_design_two {
+        background: $primary_color_slate_blue;
+    }
+
     &.active_design_three {
         background: $primary_color_light_white;
     }
@@ -54,6 +58,18 @@ body {
 
                 .header_title_s {
                     color: $primary_color_white;
+                }
+            }
+
+            &.active_design_two {
+                color: $primary_color_wheat;
+
+                .header_title_w {
+                    color: $primary_color_medium_turquoise;
+                }
+
+                .header_title_s {
+                    color: $primary_color_medium_turquoise;
                 }
             }
 
@@ -97,6 +113,11 @@ body {
                 border: solid 3px $primary_color_white;
             }
 
+            &.active_design_two {
+                background: $primary_color_medium_turquoise;
+                border: solid 3px $primary_color_wheat;
+            }
+
             &.active_design_three {
                 background: $primary_color_lilac;
                 border: solid 3px $primary_color_light_yellow;
@@ -121,6 +142,10 @@ body {
             color: $primary_color_white;
         }
 
+        &.active_design_two {
+            color: $primary_color_medium_turquoise;
+        }
+
         &.active_design_three {
             color: $primary_color_navy_blue;
         }
@@ -136,6 +161,10 @@ body {
             color: $primary_color_pale_brown_gray;
         }
 
+        &.active_design_two{
+            color: $primary_color_medium_turquoise;
+        }
+
         &.active_design_three{
             color: $primary_color_navy_blue;
         }
@@ -146,6 +175,10 @@ body {
 
             &.active_design_one {
                 color: $primary_color_white;
+            }
+
+            &.active_design_two {
+                color: $primary_color_wheat;
             }
 
             &.active_design_three {
@@ -188,6 +221,14 @@ body {
             }
         }
 
+        &.active_design_two {
+            color: $primary_color_medium_turquoise;
+
+            .main_title_letter {
+                color: $primary_color_wheat;
+            }
+        }
+
         &.active_design_three {
             color: $primary_color_navy_blue;
 
@@ -227,6 +268,12 @@ body {
             background: $primary_color_pale_brown_gray;
         }
 
+        &.active_design_two {
+            @include text-custom($font_size_1, $font_weight_strong, white, $text_transform_capitalize, $letter_spacing_medium);
+            @include border-properties($border_style: $border_solid, $border_width: $border-width_2, $border_color: $primary_color_wheat, $radius: $border_radius_15);
+            background: $primary_color_medium_turquoise;
+        }
+
         &.active_design_three {
             @include text-custom($font_size_1, $font_weight_strong, $primary_color_navy_blue, $text_transform_capitalize, $letter_spacing_medium);
             @include border-properties($border_style: $border_solid, $border_width: $border-width_2, $border_color: $primary_color_light_yellow, $radius: $border_radius_15);
@@ -255,9 +302,14 @@ body {
             border: solid 3px $primary_color_pale_brown_gray;
         }
 
+        &.active_design_two{
+            border: solid 3px $primary_color_medium_turquoise;
+            background: $primary_color_wheat;
+        }
+
         &.active_design_three{
             border: solid 3px $primary_color_navy_blue;
-            background-color: $primary_color_lilac;
+            background: $primary_color_lilac;
         }
 
         /* Card_weather_city_header */
@@ -272,7 +324,9 @@ body {
                 &.active_design_one{
                     color: $primary_color_white;
                 }
-
+                &.active_design_one{
+                    color: $primary_color_medium_turquoise;
+                }
                 &.active_design_three{
                     color: $primary_color_navy_blue
                 }
@@ -289,6 +343,10 @@ body {
 
             &.active_design_one{
                 color: $primary_color_pale_brown_gray;
+            }
+
+            &.active_design_two{
+                color: $primary_color_slate_blue;
             }
 
             &.active_design_three{
@@ -324,6 +382,9 @@ body {
                 &.active_design_one{
                     color: $primary_color_white;
                 }
+                &.active_design_two{
+                    color: $primary_color_medium_turquoise;
+                }
                 &.active_design_three{
                     color: $primary_color_navy_blue;
                 }
@@ -337,6 +398,9 @@ body {
                 font-weight: $font_weight_medium;
                 &.active_design_one{
                     color: $primary_color_white;
+                }
+                &.active_design_two{
+                    color: $primary_color_medium_turquoise;
                 }
                 &.active_design_three{
                     color: $primary_color_navy_blue;
