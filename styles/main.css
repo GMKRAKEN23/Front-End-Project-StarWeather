@@ -60,6 +60,47 @@ table {
 }
 
 /* box_design_box_end */
+/* article_qr_code */
+.article_code_qr {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 200px;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 10px;
+  background: wheat;
+  outline: solid 3px #222223;
+}
+.article_code_qr .bx-x {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #222223;
+}
+.article_code_qr .article_code_qr_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.article_code_qr .article_code_qr_container .article_code_qr_container_image {
+  position: absolute;
+  z-index: 10;
+  background: #0b265b;
+  border-radius: 1.1rem;
+}
+.article_code_qr .article_code_qr_title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0b265b;
+}
+
+/* article_qr_code_end */
 body {
   width: 100%;
   height: auto;

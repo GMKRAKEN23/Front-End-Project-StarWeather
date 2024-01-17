@@ -141,7 +141,7 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                         image.src = "asset/mist.png";
                     } else if (forecastData.weather[0].main == "Snow") {
                         image.src = "asset/snow.png";
-                    }
+                    } 
                 }
 
             } catch (error) {
