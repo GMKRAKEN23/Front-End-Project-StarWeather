@@ -78,35 +78,57 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                     humidity.innerHTML = `hum.: ${humidityValue} %`;
                     footerCard.appendChild(humidity);
 
-                    // Add class design one for change design
-                    boxDesignOne.addEventListener('click', function () {
-                        const elementsToggle = [articleCard, datePara, title, windSpeed, humidity];
-                    
-                        elementsToggle.forEach(element => {
-                            element.classList.toggle('active_design_one');
-                            element.style.transition = ".5s";
+                    const boxDesignOne = document.getElementById('box_design_one');
+                    const boxDesignTwo = document.getElementById('box_design_two');
+                    const boxDesignThree = document.getElementById('box_design_three');
+
+                    const boxDesigns = [boxDesignOne, boxDesignTwo, boxDesignThree];
+                    const categories = ['main_section_card_city_weather_article', 'main_section_card_city_weather_article_date', 'main_section_card_city_weather_article_title', 'main_section_card_city_weather_article_footer_wind_speed', 'main_section_card_city_weather_article_footer_humidity'];
+                    const designs = ['active_design_one', 'active_design_two', 'active_design_three'];
+                    const transitionDuration = '0.5s';
+
+                    // Variable pour suivre le design actuel
+                    let currentDesignIndex = 0;
+
+                    // Ajoutez des écouteurs d'événements pour chaque box_design
+                    boxDesigns.forEach((boxDesign, index) => {
+                        boxDesign.addEventListener('click', function () {
+                            // Si la box est cliquée à nouveau, rétablissez le design par défaut
+                            if (index === currentDesignIndex) {
+                                applyDefaultDesign();
+                                currentDesignIndex = 0; // Réinitialiser au design par défaut
+                            } else {
+                                applyDesign(index);
+                                currentDesignIndex = index; // Mettre à jour le design actuel
+                            }
                         });
                     });
 
-                    boxDesignTwo.addEventListener('click', function () {
-                        const elementsToggleTwo = [articleCard, datePara, title, windSpeed, humidity];
-                    
-                        elementsToggleTwo.forEach(element => {
-                            element.classList.toggle('active_design_two');
-                            element.style.transition = ".5s";
+                    function applyDefaultDesign() {
+                        categories.forEach(category => {
+                            const elements = document.querySelectorAll(`.${category}`);
+                            elements.forEach(element => {
+                                element.classList.remove(...designs);
+                                element.style.transition = transitionDuration;
+                            });
                         });
-                    });
+                    }
 
-                    boxDesignThree.addEventListener('click', function () {
-                        const elementsToggleThree = [articleCard, datePara, title, windSpeed, humidity];
-                    
-                        elementsToggleThree.forEach(elements => {
-                            elements.classList.toggle('active_design_three');
-                            elements.style.transition = ".5s";
+                    function applyDesign(designIndex) {
+                        categories.forEach(category => {
+                            const elements = document.querySelectorAll(`.${category}`);
+                            elements.forEach(element => {
+                                element.classList.remove(...designs);
+                                element.style.transition = transitionDuration;
+                            });
+
+                            elements.forEach(element => {
+                                element.classList.add(designs[designIndex]);
+                            });
                         });
-                    });
 
-                    // Accesses the main property of the weather object and adds an image according to the weather
+                    }
+
                     if (forecastData.weather[0].main == "Clouds") {
                         image.src = "asset/clouds.png";
                     } else if (forecastData.weather[0].main == "Clear") {

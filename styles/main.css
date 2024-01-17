@@ -48,6 +48,18 @@ table {
   border-spacing: 0;
 }
 
+/* box_design_box */
+#box_design_one, #box_design_two, #box_design_three {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  background: wheat;
+  font-size: 0.5rem;
+  border: solid 3px white;
+}
+
+/* box_design_box_end */
 body {
   width: 100%;
   height: auto;
@@ -169,6 +181,7 @@ body.active_design_three {
   font-size: 1.5rem;
   color: #e8c888;
   transition: 0.5s;
+  animation: move 3s linear infinite;
 }
 .header .header_painting .bxs-palette.active_design_one {
   color: #ffffff;
@@ -178,6 +191,15 @@ body.active_design_three {
 }
 .header .header_painting .bxs-palette.active_design_three {
   color: #002162;
+}
+@keyframes move {
+  50% {
+    transform: scale(1.1);
+    transform: rotate(220deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
 }
 .header .header_title_autor {
   font-size: 1.1rem;
@@ -373,7 +395,7 @@ body.active_design_three {
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_header .main_section_card_city_weather_article_date.active_design_one {
   color: #ffffff;
 }
-.main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_header .main_section_card_city_weather_article_date.active_design_one {
+.main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_header .main_section_card_city_weather_article_date.active_design_two {
   color: #00cdd3;
 }
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_header .main_section_card_city_weather_article_date.active_design_three {

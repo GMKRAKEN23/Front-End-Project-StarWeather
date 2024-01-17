@@ -15,49 +15,40 @@ const titleAutor = document.querySelector('.header_title_autor');
 const containerPainting = document.querySelector('.header_painting_container');
 const paintingIcon = document.querySelector('.bxs-palette');
 const articleTitle = document.querySelector('.main_section_card_city_weather_article_title');
-let isLogo1 = true;
 
-boxDesignOne.addEventListener('click', function () {
-    body.classList.toggle('active_design_one');
-    headerTitle.classList.toggle('active_design_one');
-    headerTitleS.classList.toggle('active_design_one');
-    headerTitleW.classList.toggle('active_design_one');
-    inputMain.classList.toggle('active_design_one');
-    mainTitle.classList.toggle('active_design_one');
-    titleAutorBy.classList.toggle('active_design_one');
-    titleAutor.classList.toggle('active_design_one');
-    containerPainting.classList.toggle('active_design_one');
-    paintingIcon.classList.toggle('active_design_one');
-    isLogo1 = !isLogo1;
-    imgLogo.src = isLogo1 ? 'asset/logo.png' : 'asset/logo_1.png';
-})
+const designs = ['active_design_one', 'active_design_two', 'active_design_three'];
+const elementsToToggle = [body, headerTitle, headerTitleS, headerTitleW, inputMain, mainTitle, titleAutorBy, titleAutor, containerPainting, paintingIcon];
 
-boxDesignTwo.addEventListener('click', function () {
-    body.classList.toggle('active_design_two');
-    headerTitle.classList.toggle('active_design_two');
-    headerTitleS.classList.toggle('active_design_two');
-    headerTitleW.classList.toggle('active_design_two');
-    inputMain.classList.toggle('active_design_two');
-    mainTitle.classList.toggle('active_design_two');
-    titleAutorBy.classList.toggle('active_design_two');
-    titleAutor.classList.toggle('active_design_two');
-    containerPainting.classList.toggle('active_design_two');
-    paintingIcon.classList.toggle('active_design_two');
-    isLogo1 = !isLogo1;
-    imgLogo.src = isLogo1 ? 'asset/logo.png' : 'asset/logo_2.png';
-})
+let isLogoDefault = true;
 
-boxDesignThree.addEventListener('click', function () {
-    body.classList.toggle('active_design_three');
-    headerTitle.classList.toggle('active_design_three');
-    headerTitleS.classList.toggle('active_design_three');
-    headerTitleW.classList.toggle('active_design_three');
-    inputMain.classList.toggle('active_design_three');
-    mainTitle.classList.toggle('active_design_three');    
-    titleAutorBy.classList.toggle('active_design_three');
-    titleAutor.classList.toggle('active_design_three');
-    containerPainting.classList.toggle('active_design_three');
-    paintingIcon.classList.toggle('active_design_three');
-    isLogo1 = !isLogo1;
-    imgLogo.src = isLogo1 ? 'asset/logo.png' : 'asset/logo_3.png';
-})
+boxDesignOne.addEventListener('click', () => applyDesign('active_design_one', 'asset/logo_1.png'));
+boxDesignTwo.addEventListener('click', () => applyDesign('active_design_two', 'asset/logo_2.png'));
+boxDesignThree.addEventListener('click', () => applyDesign('active_design_three', 'asset/logo_3.png'));
+
+function applyDesign(activeClass, logoPath) {
+
+    const isAlreadyActive = body.classList.contains(activeClass);
+
+    designs.forEach(design => {
+        elementsToToggle.forEach(element => {
+            element.classList.remove(design);
+        });
+    });
+
+    if (!isAlreadyActive) {
+        elementsToToggle.forEach(element => {
+            element.classList.add(activeClass);
+        });
+
+        isLogoDefault = !isLogoDefault;
+        imgLogo.src = isLogoDefault ? 'asset/logo.png' : logoPath;
+    } else {
+        elementsToToggle.forEach(element => {
+            element.classList.remove(activeClass);
+        });
+
+        isLogoDefault = true;
+        imgLogo.src = 'asset/logo.png';
+    }
+}
+

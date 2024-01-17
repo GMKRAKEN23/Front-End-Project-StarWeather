@@ -7,6 +7,19 @@
 // mixins
 @import 'mixins';
 
+/* box_design_box */
+
+#box_design_one, #box_design_two, #box_design_three{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: $font_weight_strong;
+    background: wheat;
+    font-size: 0.5rem;
+    border: solid 3px white;
+}
+/* box_design_box_end */
+
 body {
     @include dimensions($width: 100%, $height: auto);
     background: $primary_color_strong_blue;
@@ -136,7 +149,8 @@ body {
             cursor: $cursor_pointer;
             font-size: $font_size_1_5;
             color: $primary_color_gold;    
-            transition: 0.5s;   
+            transition: 0.5s; 
+            animation: move 3s linear infinite;  
 
         &.active_design_one {
             color: $primary_color_white;
@@ -152,6 +166,15 @@ body {
         }
     }
 
+    @keyframes move {
+        50%{
+            transform: scale(1.1);
+            transform: rotate(220deg);
+        }
+        100%{
+            transform: rotate(0)
+        }
+    }
     /* header_painter_container_end */
 
     .header_title_autor {
@@ -324,7 +347,7 @@ body {
                 &.active_design_one{
                     color: $primary_color_white;
                 }
-                &.active_design_one{
+                &.active_design_two{
                     color: $primary_color_medium_turquoise;
                 }
                 &.active_design_three{
