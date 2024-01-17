@@ -59,6 +59,9 @@ body {
 body.active_design_one {
   background: #222223;
 }
+body.active_design_three {
+  background: #fcfcf1;
+}
 
 /* header */
 .header {
@@ -103,6 +106,15 @@ body.active_design_one {
 .header .header_logo .header_title.active_design_one .header_title_s {
   color: #ffffff;
 }
+.header .header_logo .header_title.active_design_three {
+  color: #002162;
+}
+.header .header_logo .header_title.active_design_three .header_title_w {
+  color: #ffd64a;
+}
+.header .header_logo .header_title.active_design_three .header_title_s {
+  color: #ffd64a;
+}
 .header .header_painting {
   display: flex;
   flex-direction: column;
@@ -125,6 +137,10 @@ body.active_design_one {
   background: #bfa599;
   border: solid 3px #ffffff;
 }
+.header .header_painting .header_painting_container.active_design_three {
+  background: #c491f9;
+  border: solid 3px #ffd64a;
+}
 .header .header_painting .header_painting_container .header_painting_container_box {
   width: 18px;
   height: 18px;
@@ -141,6 +157,9 @@ body.active_design_one {
 .header .header_painting .bxs-palette.active_design_one {
   color: #ffffff;
 }
+.header .header_painting .bxs-palette.active_design_three {
+  color: #002162;
+}
 .header .header_title_autor {
   font-size: 1.1rem;
   font-weight: 700;
@@ -149,12 +168,21 @@ body.active_design_one {
   letter-spacing: 3px;
   color: #e8c888;
 }
+.header .header_title_autor.active_design_one {
+  color: #bfa599;
+}
+.header .header_title_autor.active_design_three {
+  color: #002162;
+}
 .header .header_title_autor .header_title_autor_by {
   color: #34c5f0;
   transition: 0.5s;
 }
 .header .header_title_autor .header_title_autor_by.active_design_one {
   color: #ffffff;
+}
+.header .header_title_autor .header_title_autor_by.active_design_three {
+  color: #ffd64a;
 }
 @media (max-width: 779px) {
   .header .header_title_autor {
@@ -169,7 +197,6 @@ body.active_design_one {
   justify-content: start;
   flex-direction: column;
   display: flex;
-  padding: 20px;
   /* main input */
   /* main input_end */
 }
@@ -192,6 +219,12 @@ body.active_design_one {
 }
 .main .main_title.active_design_one .main_title_letter {
   color: #ffffff;
+}
+.main .main_title.active_design_three {
+  color: #002162;
+}
+.main .main_title.active_design_three .main_title_letter {
+  color: #ffd64a;
 }
 .main .main_input {
   font-size: 1rem;
@@ -233,6 +266,16 @@ body.active_design_one {
   border: 2px solid #bfa599;
   background: #bfa599;
 }
+.main .main_input.active_design_three {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #002162;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  border-radius: 15px;
+  border: 2px solid #ffd64a;
+  background: #c491f9;
+}
 
 .main_section_card_city_weather {
   margin: 50px auto;
@@ -269,6 +312,10 @@ body.active_design_one {
 .main_section_card_city_weather .main_section_card_city_weather_article.active_design_one {
   border: solid 3px #bfa599;
 }
+.main_section_card_city_weather .main_section_card_city_weather_article.active_design_three {
+  border: solid 3px #002162;
+  background-color: #c491f9;
+}
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_header {
   display: flex;
   justify-content: space-between;
@@ -281,6 +328,9 @@ body.active_design_one {
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_header .main_section_card_city_weather_article_date.active_design_one {
   color: #ffffff;
 }
+.main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_header .main_section_card_city_weather_article_date.active_design_three {
+  color: #002162;
+}
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_title {
   font-size: 1.5rem;
   font-weight: 700;
@@ -292,6 +342,9 @@ body.active_design_one {
 }
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_title.active_design_one {
   color: #bfa599;
+}
+.main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_title.active_design_three {
+  color: #ffd64a;
 }
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_image {
   display: flex;
@@ -318,12 +371,18 @@ body.active_design_one {
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_footer .main_section_card_city_weather_article_footer_humidity.active_design_one {
   color: #ffffff;
 }
+.main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_footer .main_section_card_city_weather_article_footer_humidity.active_design_three {
+  color: #002162;
+}
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_footer .main_section_card_city_weather_article_footer_wind_speed {
   color: #34c5f0;
   font-weight: 700;
 }
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_footer .main_section_card_city_weather_article_footer_wind_speed.active_design_one {
   color: #ffffff;
+}
+.main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_footer .main_section_card_city_weather_article_footer_wind_speed.active_design_three {
+  color: #002162;
 }
 
 /* main_end *//*# sourceMappingURL=main.css.map */

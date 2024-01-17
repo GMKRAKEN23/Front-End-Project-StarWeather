@@ -80,16 +80,21 @@ document.getElementById('input_city').addEventListener('keypress', async functio
 
                     // Add class design one for change design
                     boxDesignOne.addEventListener('click', function () {
-                        articleCard.classList.toggle('active_design_one');
-                        articleCard.style.transition = ".5s";
-                        datePara.classList.toggle('active_design_one');
-                        datePara.style.transition = ".5s";
-                        title.classList.toggle('active_design_one');
-                        title.style.transition = ".5s";
-                        windSpeed.classList.toggle('active_design_one');
-                        windSpeed.style.transition = ".5s";
-                        humidity.classList.toggle('active_design_one');
-                        humidity.style.transition = ".5s";
+                        const elementsToggle = [articleCard, datePara, title, windSpeed, humidity];
+                    
+                        elementsToggle.forEach(element => {
+                            element.classList.toggle('active_design_one');
+                            element.style.transition = ".5s";
+                        });
+                    });
+
+                    boxDesignThree.addEventListener('click', function () {
+                        const elementsToggleThree = [articleCard, datePara, title, windSpeed, humidity];
+                    
+                        elementsToggleThree.forEach(elements => {
+                            elements.classList.toggle('active_design_three');
+                            elements.style.transition = ".5s";
+                        });
                     });
 
                     // Accesses the main property of the weather object and adds an image according to the weather

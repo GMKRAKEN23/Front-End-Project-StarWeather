@@ -17,6 +17,10 @@ body {
     &.active_design_one {
         background: $primary_color_black;
     }
+
+    &.active_design_three {
+        background: $primary_color_light_white;
+    }
 }
 
 /* header */
@@ -53,6 +57,18 @@ body {
                 }
             }
 
+            &.active_design_three {
+                color: $primary_color_navy_blue;
+
+                .header_title_w {
+                    color: $primary_color_light_yellow;
+                }
+
+                .header_title_s {
+                    color: $primary_color_light_yellow;
+                }
+            }
+
 
         }
     }
@@ -81,6 +97,11 @@ body {
                 border: solid 3px $primary_color_white;
             }
 
+            &.active_design_three {
+                background: $primary_color_lilac;
+                border: solid 3px $primary_color_light_yellow;
+            }
+
             .header_painting_container_box {
                 width: 18px;
                 height: 18px;
@@ -99,6 +120,10 @@ body {
         &.active_design_one {
             color: $primary_color_white;
         }
+
+        &.active_design_three {
+            color: $primary_color_navy_blue;
+        }
         }
     }
 
@@ -107,6 +132,13 @@ body {
     .header_title_autor {
         @include text-custom($font_size_1_1, $font_weight_medium, $primary_color_gold, $text_transform_uppercase, $letter_spacing_strong);
         color: $primary_color_gold;
+        &.active_design_one{
+            color: $primary_color_pale_brown_gray;
+        }
+
+        &.active_design_three{
+            color: $primary_color_navy_blue;
+        }
 
         .header_title_autor_by {
             color: $primary_color_sky_blue;
@@ -114,6 +146,10 @@ body {
 
             &.active_design_one {
                 color: $primary_color_white;
+            }
+
+            &.active_design_three {
+                color: $primary_color_light_yellow;
             }
         }
 
@@ -131,7 +167,7 @@ body {
     justify-content: start;
     flex-direction: $flex_direction_column;
     display: flex;
-    padding: 20px;
+
 
     .main_title {
         @include text-custom($font_size_1_5, $font_weight_medium, $primary_color_gold, $text_transform_capitalize, $letter_spacing_medium);
@@ -149,6 +185,14 @@ body {
 
             .main_title_letter {
                 color: $primary_color_white;
+            }
+        }
+
+        &.active_design_three {
+            color: $primary_color_navy_blue;
+
+            .main_title_letter {
+                color: $primary_color_light_yellow;
             }
         }
     }
@@ -182,6 +226,12 @@ body {
             @include border-properties($border_style: $border_solid, $border_width: $border-width_2, $border_color: $primary_color_pale_brown_gray, $radius: $border_radius_15);
             background: $primary_color_pale_brown_gray;
         }
+
+        &.active_design_three {
+            @include text-custom($font_size_1, $font_weight_strong, $primary_color_navy_blue, $text_transform_capitalize, $letter_spacing_medium);
+            @include border-properties($border_style: $border_solid, $border_width: $border-width_2, $border_color: $primary_color_light_yellow, $radius: $border_radius_15);
+            background: $primary_color_lilac;
+        }
     }
 
     /* main input_end */
@@ -205,6 +255,11 @@ body {
             border: solid 3px $primary_color_pale_brown_gray;
         }
 
+        &.active_design_three{
+            border: solid 3px $primary_color_navy_blue;
+            background-color: $primary_color_lilac;
+        }
+
         /* Card_weather_city_header */
         .main_section_card_city_weather_article_header {
             display: flex;
@@ -216,6 +271,10 @@ body {
                 font-weight: $font_weight_medium;
                 &.active_design_one{
                     color: $primary_color_white;
+                }
+
+                &.active_design_three{
+                    color: $primary_color_navy_blue
                 }
             }
         }
@@ -230,6 +289,10 @@ body {
 
             &.active_design_one{
                 color: $primary_color_pale_brown_gray;
+            }
+
+            &.active_design_three{
+                color: $primary_color_light_yellow;
             }
         }
 
@@ -261,6 +324,9 @@ body {
                 &.active_design_one{
                     color: $primary_color_white;
                 }
+                &.active_design_three{
+                    color: $primary_color_navy_blue;
+                }
             }
 
             /* Card_weather_city_footer_humidity_end */
@@ -271,6 +337,9 @@ body {
                 font-weight: $font_weight_medium;
                 &.active_design_one{
                     color: $primary_color_white;
+                }
+                &.active_design_three{
+                    color: $primary_color_navy_blue;
                 }
             }
 
