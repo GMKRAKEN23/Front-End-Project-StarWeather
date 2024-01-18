@@ -50,4 +50,3 @@ function applyDesign(activeClass, logoPath) {
     imgLogo.src = 'asset/logo.png';
   }
 }
-

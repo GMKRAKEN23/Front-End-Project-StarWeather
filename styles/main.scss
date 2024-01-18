@@ -8,40 +8,32 @@
 @import 'mixins';
 
 /* box_design_box */
-
 #box_design_one,
 #box_design_two,
 #box_design_three {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-container($direction: $flex_direction_row, $justify: $justify_content_center, $align: $align_items_center); 
     font-weight: $font_weight_strong;
-    background: wheat;
+    background: $primary_color_wheat;    
+    border: $border_solid $border_width_3 $primary_color_white;
     font-size: 0.5rem;
-    border: solid 3px white;
 }
-
 /* box_design_box_end */
 
 /* article_qr_code */
-
 .article_code_qr {
+    @include flex-container($direction: $flex_direction_column, $justify: $justify_content_center, $align: $align_items_center, $wrap: $flex_no_wrap);
     position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 180px;
     height: 200px;
     bottom: 20px;
     right: -100%;
+    background: $primary_color_wheat;
     border-radius: $border_radius_10;
-    background: wheat;
-    outline: solid 3px $primary_color_black;
+    outline: $border_solid $border_width_3 $primary_color_black;
     transition: 3s;
 
     .bx-x {
-        cursor: pointer;
+        cursor:$cursor_pointer;
         position: absolute;
         top: 10px;
         right: 10px;
@@ -54,9 +46,7 @@
     }
 
     .article_code_qr_container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex-container($direction: $flex_direction_row, $justify: $justify_content_center, $align: $align_items_center); 
         margin-top: 20px;
 
         .article_code_qr_container_image {
@@ -70,12 +60,11 @@
     .article_code_qr_title {
         @include text-custom($font_size_1_2, $font_weight_medium, $primary_color_strong_blue, $text-transform_capitalize, $letter_spacing_medium);
         margin-top: 10px;
-
     }
 }
-
 /* article_qr_code_end */
 
+/* body */
 body {
     @include dimensions($width: 100%, $height: auto);
     background: $primary_color_strong_blue;
@@ -86,15 +75,14 @@ body {
     &.active_design_one {
         background: $primary_color_black;
     }
-
     &.active_design_two {
         background: $primary_color_slate_blue;
     }
-
     &.active_design_three {
         background: $primary_color_light_white;
     }
 }
+/* body_end */
 
 /* header */
 .header {
@@ -132,7 +120,6 @@ body {
                         color: $primary_color_white;
                     }
                 }
-
                 &.active_design_two {
                     color: $primary_color_wheat;
 
@@ -144,7 +131,6 @@ body {
                         color: $primary_color_medium_turquoise;
                     }
                 }
-
                 &.active_design_three {
                     color: $primary_color_navy_blue;
 
@@ -156,57 +142,48 @@ body {
                         color: $primary_color_light_yellow;
                     }
                 }
-
-
             }
         }
     }
 
     /* header_painter_container */
     .header_painting {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        @include flex-container($direction: $flex_direction_column, $align: $align_items_center);
         margin: 10px 0;
 
         .header_painting_container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: 10px 0;
+            @include flex-container($direction: $flex_direction_row, $justify: $justify_content_space_around, $align: $align_items_center); 
+            @include border-properties($border_style: $border_solid, $border_width: $border_width_3, $border_color: $primary_color_sky_blue, $radius:$border_radius_10);
             background: $primary_color_gold;
-            border: solid 3px $primary_color_sky_blue;
-            border-radius: 10px;
+            margin: 10px 0;
             width: 170px;
             height: 40px;
             transition: 0.5s;
             @include media-maxwidth($smartphone_medium_size){
-                flex-direction: column;
+                flex-direction: $flex_direction_column;
                 width: 50px;
                 height: 130px;
             }
 
             &.active_design_one {
                 background: $primary_color_pale_brown_gray;
-                border: solid 3px $primary_color_white;
+                border: $border_solid $border_width_3 $primary_color_white;
             }
-
             &.active_design_two {
                 background: $primary_color_medium_turquoise;
-                border: solid 3px $primary_color_wheat;
+                border: $border_solid $border_width_3 $primary_color_wheat;
             }
-
             &.active_design_three {
                 background: $primary_color_lilac;
-                border: solid 3px $primary_color_light_yellow;
+                border: $border_solid $border_width_3 $primary_color_light_yellow;
             }
 
             .header_painting_container_box {
+                cursor: $cursor_pointer;
                 width: 18px;
                 height: 18px;
-                cursor: pointer;
-                background: black;
-                border-radius: 5px;
+                background: $primary_color_black;
+                border-radius: $border_radius_5;
             }
         }
 
@@ -223,11 +200,9 @@ body {
             &.active_design_one {
                 color: $primary_color_white;
             }
-
             &.active_design_two {
                 color: $primary_color_medium_turquoise;
             }
-
             &.active_design_three {
                 color: $primary_color_navy_blue;
             }
@@ -254,11 +229,9 @@ body {
         &.active_design_one {
             color: $primary_color_pale_brown_gray;
         }
-
         &.active_design_two {
             color: $primary_color_medium_turquoise;
         }
-
         &.active_design_three {
             color: $primary_color_navy_blue;
         }
@@ -270,11 +243,9 @@ body {
             &.active_design_one {
                 color: $primary_color_white;
             }
-
             &.active_design_two {
                 color: $primary_color_wheat;
             }
-
             &.active_design_three {
                 color: $primary_color_light_yellow;
             }
@@ -291,9 +262,9 @@ body {
 /* main */
 .main {
     min-height: 50vh;
-    justify-content: start;
-    flex-direction: $flex_direction_column;
     display: flex;
+    justify-content: start;
+    flex-direction: $flex_direction_column; 
 
     .main_title {
         @include text-custom($font_size_1_5, $font_weight_medium, $primary_color_gold, $text_transform_capitalize, $letter_spacing_medium);
@@ -315,7 +286,6 @@ body {
                 color: $primary_color_white;
             }
         }
-
         &.active_design_two {
             color: $primary_color_medium_turquoise;
 
@@ -323,7 +293,6 @@ body {
                 color: $primary_color_wheat;
             }
         }
-
         &.active_design_three {
             color: $primary_color_navy_blue;
 
@@ -342,18 +311,16 @@ body {
         @include media-minwidth($smartphone_size) {
             width: 80%;
         }
-
         @include media-minwidth($tablet_size) {
             width: 60%;
         }
-
         @include media-minwidth($deskop_size) {
             width: 40%;
         }
 
+        background: $primary_color_gold;
         margin: 0 auto;
         padding: 8px 15px;
-        background: $primary_color_gold;
         outline: none;
         transition: 0.5s;
 
@@ -362,27 +329,24 @@ body {
             @include border-properties($border_style: $border_solid, $border_width: $border-width_2, $border_color: $primary_color_pale_brown_gray, $radius: $border_radius_15);
             background: $primary_color_pale_brown_gray;
         }
-
         &.active_design_two {
-            @include text-custom($font_size_1, $font_weight_strong, white, $text_transform_capitalize, $letter_spacing_medium);
+            @include text-custom($font_size_1, $font_weight_strong,$primary_color_white, $text_transform_capitalize, $letter_spacing_medium);
             @include border-properties($border_style: $border_solid, $border_width: $border-width_2, $border_color: $primary_color_wheat, $radius: $border_radius_15);
             background: $primary_color_medium_turquoise;
         }
-
         &.active_design_three {
             @include text-custom($font_size_1, $font_weight_strong, $primary_color_navy_blue, $text_transform_capitalize, $letter_spacing_medium);
             @include border-properties($border_style: $border_solid, $border_width: $border-width_2, $border_color: $primary_color_light_yellow, $radius: $border_radius_15);
             background: $primary_color_lilac;
         }
     }
-
     /* main input_end */
 }
 
 @keyframes text {
     0%, 100% {
-        transform: translateX(0);
         color: $primary_color_gold;
+        transform: translateX(0);
         opacity: 1;
     }
     20% {
@@ -407,24 +371,21 @@ body {
     /* Card_weather_city */
     .main_section_card_city_weather_article {
         @include flex-container($direction: $flex_direction_column, $justify: $justify_content_space_around);
+        @include border-properties($border_style: $border_solid, $border_width: $border_width_3, $border_color: $primary_color_gold, $radius:$border_radius_10);
         min-width: 270px;
         width: 20%;
         height: 300px;
         margin: 10px;
-        border-radius: $border_radius_10;
-        border: solid 3px $primary_color_gold;
 
         &.active_design_one {
-            border: solid 3px $primary_color_pale_brown_gray;
+            border: $border_solid $border_width_3 $primary_color_pale_brown_gray;
         }
-
         &.active_design_two {
-            border: solid 3px $primary_color_medium_turquoise;
+            border: $border_solid $border_width_3 $primary_color_medium_turquoise;
             background: $primary_color_wheat;
         }
-
         &.active_design_three {
-            border: solid 3px $primary_color_navy_blue;
+            border: $border_solid $border_width_3 $primary_color_navy_blue;
             background: $primary_color_lilac;
         }
 
@@ -441,11 +402,9 @@ body {
                 &.active_design_one {
                     color: $primary_color_white;
                 }
-
                 &.active_design_two {
                     color: $primary_color_medium_turquoise;
                 }
-
                 &.active_design_three {
                     color: $primary_color_navy_blue
                 }
@@ -463,27 +422,23 @@ body {
             &.active_design_one {
                 color: $primary_color_pale_brown_gray;
             }
-
             &.active_design_two {
                 color: $primary_color_slate_blue;
             }
-
             &.active_design_three {
                 color: $primary_color_light_yellow;
             }
         }
-
         /* Card_weather_city_title_end */
 
         /* Card_weather_city_image */
         .main_section_card_city_weather_article_image {
             display: flex;
-            justify-content: center;
+            justify-content: $justify_content_center;
             width: auto;
             height: 200px;
             margin: 0 auto;
         }
-
         /* Card_weather_city_image_end */
 
         /* Card_weather_city_footer */
@@ -511,7 +466,6 @@ body {
                     color: $primary_color_navy_blue;
                 }
             }
-
             /* Card_weather_city_footer_humidity_end */
 
             /* Card_weather_city_footer_wind_speed */
@@ -522,23 +476,17 @@ body {
                 &.active_design_one {
                     color: $primary_color_white;
                 }
-
                 &.active_design_two {
                     color: $primary_color_medium_turquoise;
                 }
-
                 &.active_design_three {
                     color: $primary_color_navy_blue;
                 }
             }
-
             /* Card_weather_city_footer_wind_speed_end */
         }
-
         /* Card_weather_footer */
     }
-
     /* Card_weather_city_end */
 }
-
 /* main_end */

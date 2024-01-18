@@ -1,6 +1,6 @@
 document.getElementById('input_city').addEventListener('keypress', async function getWeather(event) {
     // Declare variable days of the week
-    const daysWeek = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+    const daysWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     if (event.key === 'Enter') {
         event.preventDefault(); // Prevents page from loading
