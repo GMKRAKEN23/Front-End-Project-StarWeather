@@ -26,29 +26,32 @@ boxDesignTwo.addEventListener('click', () => applyDesign('active_design_two', 'a
 boxDesignThree.addEventListener('click', () => applyDesign('active_design_three', 'asset/logo_3.png'));
 
 function applyDesign(activeClass, logoPath) {
-
     const isAlreadyActive = body.classList.contains(activeClass);
-
+  
     designs.forEach(design => {
-        elementsToToggle.forEach(element => {
-            element.classList.remove(design);
-        });
+      elementsToToggle.forEach(element => {
+        element.classList.remove(design);
+      });
     });
-
+  
     if (!isAlreadyActive) {
-        elementsToToggle.forEach(element => {
-            element.classList.add(activeClass);
-        });
-
-        isLogoDefault = !isLogoDefault;
-        imgLogo.src = isLogoDefault ? 'asset/logo.png' : logoPath;
+      elementsToToggle.forEach(element => {
+        element.classList.add(activeClass);
+      });
+  
+      isLogoDefault = !isLogoDefault;
+      imgLogo.src = isLogoDefault ? 'asset/logo.png' : logoPath;
     } else {
-        elementsToToggle.forEach(element => {
-            element.classList.remove(activeClass);
-        });
-
-        isLogoDefault = true;
-        imgLogo.src = 'asset/logo.png';
+      elementsToToggle.forEach(element => {
+        element.classList.remove(activeClass);
+      });
+  
+      isLogoDefault = true;
+      imgLogo.src = 'asset/logo.png';
     }
-}
-
+  }
+  
+  boxDesigns.forEach((boxDesign, index) => {
+    boxDesign.addEventListener('click', () => applyDesign(designs[index], `asset/logo_${index + 1}.png`));
+  });
+  
