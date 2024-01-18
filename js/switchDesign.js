@@ -51,7 +51,4 @@ function applyDesign(activeClass, logoPath) {
     }
   }
   
-  boxDesigns.forEach((boxDesign, index) => {
-    boxDesign.addEventListener('click', () => applyDesign(designs[index], `asset/logo_${index + 1}.png`));
-  });
   

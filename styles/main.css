@@ -215,6 +215,13 @@ body.active_design_three {
   height: 40px;
   transition: 0.5s;
 }
+@media (max-width: 449px) {
+  .header .header_painting .header_painting_container {
+    flex-direction: column;
+    width: 50px;
+    height: 130px;
+  }
+}
 .header .header_painting .header_painting_container.active_design_one {
   background: #bfa599;
   border: solid 3px #ffffff;
@@ -240,6 +247,11 @@ body.active_design_three {
   color: #e8c888;
   transition: 0.5s;
   animation: move 3s linear infinite;
+}
+@media (max-width: 449px) {
+  .header .header_painting .bxs-palette {
+    visibility: hidden;
+  }
 }
 .header .header_painting .bxs-palette.active_design_one {
   color: #ffffff;

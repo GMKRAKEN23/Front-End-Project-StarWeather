@@ -180,6 +180,11 @@ body {
             width: 170px;
             height: 40px;
             transition: 0.5s;
+            @include media-maxwidth($smartphone_medium_size){
+                flex-direction: column;
+                width: 50px;
+                height: 130px;
+            }
 
             &.active_design_one {
                 background: $primary_color_pale_brown_gray;
@@ -206,6 +211,9 @@ body {
         }
 
         .bxs-palette {
+            @include media-maxwidth($smartphone_medium_size){
+                visibility: hidden;
+            }
             cursor: $cursor_pointer;
             font-size: $font_size_1_5;
             color: $primary_color_gold;
