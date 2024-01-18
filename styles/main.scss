@@ -9,7 +9,9 @@
 
 /* box_design_box */
 
-#box_design_one, #box_design_two, #box_design_three{
+#box_design_one,
+#box_design_two,
+#box_design_three {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,11 +20,12 @@
     font-size: 0.5rem;
     border: solid 3px white;
 }
+
 /* box_design_box_end */
 
 /* article_qr_code */
 
-.article_code_qr{
+.article_code_qr {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -31,33 +34,43 @@
     width: 180px;
     height: 200px;
     bottom: 20px;
-    right: 20px;
+    right: -100%;
     border-radius: $border_radius_10;
     background: wheat;
     outline: solid 3px $primary_color_black;
-    .bx-x{
+    transition: 3s;
+
+    .bx-x {
         cursor: pointer;
         position: absolute;
         top: 10px;
         right: 10px;
         font-size: 20px;
         color: $primary_color_black;
+
+        &:hover {
+            color: $primary_color_light_white;
+        }
     }
-    .article_code_qr_container{
+
+    .article_code_qr_container {
         display: flex;
         justify-content: center;
         align-items: center;
-        .article_code_qr_container_image{
+        margin-top: 20px;
+
+        .article_code_qr_container_image {
             position: absolute;
             z-index: 10;
             background: $primary_color_strong_blue;
             border-radius: $font_size_1_1;
         }
     }
-    .article_code_qr_title{
-        font-size: $font_size_1_2;
-        font-weight: $font_weight_medium;
-        color: $primary_color_strong_blue;
+
+    .article_code_qr_title {
+        @include text-custom($font_size_1_2, $font_weight_medium, $primary_color_strong_blue, $text-transform_capitalize, $letter_spacing_medium);
+        margin-top: 10px;
+
     }
 }
 
@@ -91,57 +104,65 @@ body {
     .header_logo {
         @include flex-container($direction: $flex_direction_column, $justify: $justify_content_center, $align: $align_items_center, $wrap: $flex-wrap);
 
-        .header_title {
-            @include text-custom($font_size_1_5, $font_weight_light, $primary_color_gold, $text-transform_capitalize, $letter_spacing_strong);
-            transition: 0.5s;
+        .header_logo_link {
 
-            .header_title_w {
-                color: $primary_color_sky_blue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .header_title {
+                @include text-custom($font_size_1_5, $font_weight_light, $primary_color_gold, $text-transform_capitalize, $letter_spacing_strong);
                 transition: 0.5s;
-            }
-
-            .header_title_s {
-                color: $primary_color_sky_blue;
-                transition: 0.5s;
-            }
-
-            &.active_design_one {
-                color: $primary_color_pale_brown_gray;
 
                 .header_title_w {
-                    color: $primary_color_white;
+                    color: $primary_color_sky_blue;
+                    transition: 0.5s;
                 }
 
                 .header_title_s {
-                    color: $primary_color_white;
+                    color: $primary_color_sky_blue;
+                    transition: 0.5s;
                 }
+
+                &.active_design_one {
+                    color: $primary_color_pale_brown_gray;
+
+                    .header_title_w {
+                        color: $primary_color_white;
+                    }
+
+                    .header_title_s {
+                        color: $primary_color_white;
+                    }
+                }
+
+                &.active_design_two {
+                    color: $primary_color_wheat;
+
+                    .header_title_w {
+                        color: $primary_color_medium_turquoise;
+                    }
+
+                    .header_title_s {
+                        color: $primary_color_medium_turquoise;
+                    }
+                }
+
+                &.active_design_three {
+                    color: $primary_color_navy_blue;
+
+                    .header_title_w {
+                        color: $primary_color_light_yellow;
+                    }
+
+                    .header_title_s {
+                        color: $primary_color_light_yellow;
+                    }
+                }
+
+
             }
-
-            &.active_design_two {
-                color: $primary_color_wheat;
-
-                .header_title_w {
-                    color: $primary_color_medium_turquoise;
-                }
-
-                .header_title_s {
-                    color: $primary_color_medium_turquoise;
-                }
-            }
-
-            &.active_design_three {
-                color: $primary_color_navy_blue;
-
-                .header_title_w {
-                    color: $primary_color_light_yellow;
-                }
-
-                .header_title_s {
-                    color: $primary_color_light_yellow;
-                }
-            }
-
-
         }
     }
 
@@ -191,12 +212,43 @@ body {
         .bxs-palette {
             cursor: $cursor_pointer;
             font-size: $font_size_1_5;
-            color: $primary_color_gold;    
-            transition: 0.5s; 
-            animation: move 3s linear infinite;  
+            color: $primary_color_gold;
+            transition: 0.5s;
+            animation: move 3s linear infinite;
+
+            &.active_design_one {
+                color: $primary_color_white;
+            }
+
+            &.active_design_two {
+                color: $primary_color_medium_turquoise;
+            }
+
+            &.active_design_three {
+                color: $primary_color_navy_blue;
+            }
+        }
+    }
+
+    @keyframes move {
+        50% {
+            transform: scale(1.1);
+            transform: rotate(220deg);
+        }
+
+        100% {
+            transform: rotate(0)
+        }
+    }
+
+    /* header_painter_container_end */
+
+    .header_title_autor {
+        @include text-custom($font_size_1_1, $font_weight_medium, $primary_color_gold, $text_transform_uppercase, $letter_spacing_strong);
+        color: $primary_color_gold;
 
         &.active_design_one {
-            color: $primary_color_white;
+            color: $primary_color_pale_brown_gray;
         }
 
         &.active_design_two {
@@ -204,34 +256,6 @@ body {
         }
 
         &.active_design_three {
-            color: $primary_color_navy_blue;
-        }
-        }
-    }
-
-    @keyframes move {
-        50%{
-            transform: scale(1.1);
-            transform: rotate(220deg);
-        }
-        100%{
-            transform: rotate(0)
-        }
-    }
-    /* header_painter_container_end */
-
-    .header_title_autor {
-        @include text-custom($font_size_1_1, $font_weight_medium, $primary_color_gold, $text_transform_uppercase, $letter_spacing_strong);
-        color: $primary_color_gold;
-        &.active_design_one{
-            color: $primary_color_pale_brown_gray;
-        }
-
-        &.active_design_two{
-            color: $primary_color_medium_turquoise;
-        }
-
-        &.active_design_three{
             color: $primary_color_navy_blue;
         }
 
@@ -364,16 +388,17 @@ body {
         margin: 10px;
         border-radius: $border_radius_10;
         border: solid 3px $primary_color_gold;
-        &.active_design_one{
+
+        &.active_design_one {
             border: solid 3px $primary_color_pale_brown_gray;
         }
 
-        &.active_design_two{
+        &.active_design_two {
             border: solid 3px $primary_color_medium_turquoise;
             background: $primary_color_wheat;
         }
 
-        &.active_design_three{
+        &.active_design_three {
             border: solid 3px $primary_color_navy_blue;
             background: $primary_color_lilac;
         }
@@ -387,13 +412,16 @@ body {
             .main_section_card_city_weather_article_date {
                 color: $primary_color_sky_blue;
                 font-weight: $font_weight_medium;
-                &.active_design_one{
+
+                &.active_design_one {
                     color: $primary_color_white;
                 }
-                &.active_design_two{
+
+                &.active_design_two {
                     color: $primary_color_medium_turquoise;
                 }
-                &.active_design_three{
+
+                &.active_design_three {
                     color: $primary_color_navy_blue
                 }
             }
@@ -407,15 +435,15 @@ body {
             text-align: $text_align_center;
             padding: 10px;
 
-            &.active_design_one{
+            &.active_design_one {
                 color: $primary_color_pale_brown_gray;
             }
 
-            &.active_design_two{
+            &.active_design_two {
                 color: $primary_color_slate_blue;
             }
 
-            &.active_design_three{
+            &.active_design_three {
                 color: $primary_color_light_yellow;
             }
         }
@@ -445,13 +473,16 @@ body {
             .main_section_card_city_weather_article_footer_humidity {
                 color: $primary_color_sky_blue;
                 font-weight: $font_weight_medium;
-                &.active_design_one{
+
+                &.active_design_one {
                     color: $primary_color_white;
                 }
-                &.active_design_two{
+
+                &.active_design_two {
                     color: $primary_color_medium_turquoise;
                 }
-                &.active_design_three{
+
+                &.active_design_three {
                     color: $primary_color_navy_blue;
                 }
             }
@@ -462,13 +493,16 @@ body {
             .main_section_card_city_weather_article_footer_wind_speed {
                 color: $primary_color_sky_blue;
                 font-weight: $font_weight_medium;
-                &.active_design_one{
+
+                &.active_design_one {
                     color: $primary_color_white;
                 }
-                &.active_design_two{
+
+                &.active_design_two {
                     color: $primary_color_medium_turquoise;
                 }
-                &.active_design_three{
+
+                &.active_design_three {
                     color: $primary_color_navy_blue;
                 }
             }
