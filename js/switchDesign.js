@@ -26,29 +26,28 @@ boxDesignTwo.addEventListener('click', () => applyDesign('active_design_two', 'a
 boxDesignThree.addEventListener('click', () => applyDesign('active_design_three', 'asset/logo_3.png'));
 
 function applyDesign(activeClass, logoPath) {
-    const isAlreadyActive = body.classList.contains(activeClass);
-  
-    designs.forEach(design => {
-      elementsToToggle.forEach(element => {
-        element.classList.remove(design);
-      });
+  const isAlreadyActive = body.classList.contains(activeClass);
+
+  designs.forEach(design => {
+    elementsToToggle.forEach(element => {
+      element.classList.remove(design);
     });
-  
-    if (!isAlreadyActive) {
-      elementsToToggle.forEach(element => {
-        element.classList.add(activeClass);
-      });
-  
-      isLogoDefault = !isLogoDefault;
-      imgLogo.src = isLogoDefault ? 'asset/logo.png' : logoPath;
-    } else {
-      elementsToToggle.forEach(element => {
-        element.classList.remove(activeClass);
-      });
-  
-      isLogoDefault = true;
-      imgLogo.src = 'asset/logo.png';
-    }
+  });
+
+  if (!isAlreadyActive) {
+    elementsToToggle.forEach(element => {
+      element.classList.add(activeClass);
+    });
+
+    isLogoDefault = false;
+    imgLogo.src = logoPath;
+  } else {
+    elementsToToggle.forEach(element => {
+      element.classList.remove(activeClass);
+    });
+
+    isLogoDefault = true;
+    imgLogo.src = 'asset/logo.png';
   }
-  
-  
+}
+
