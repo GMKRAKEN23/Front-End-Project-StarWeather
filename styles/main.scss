@@ -49,7 +49,7 @@
         color: $primary_color_black;
 
         &:hover {
-            color: $primary_color_light_white;
+            color: $primary_color_sky_blue;
         }
     }
 
@@ -105,11 +105,7 @@ body {
         @include flex-container($direction: $flex_direction_column, $justify: $justify_content_center, $align: $align_items_center, $wrap: $flex-wrap);
 
         .header_logo_link {
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            @include flex-container($direction: $flex_direction_column, $justify: $justify_content_center, $align: $align_items_center, $wrap: $flex_no_wrap);
 
             .header_title {
                 @include text-custom($font_size_1_5, $font_weight_light, $primary_color_gold, $text-transform_capitalize, $letter_spacing_strong);
@@ -291,12 +287,13 @@ body {
     flex-direction: $flex_direction_column;
     display: flex;
 
-
     .main_title {
         @include text-custom($font_size_1_5, $font_weight_medium, $primary_color_gold, $text_transform_capitalize, $letter_spacing_medium);
         text-align: $text_align_center;
-        margin: 25px;
+        margin: 25px auto;
+        padding: 10px 0;
         transition: 0.5s;
+        animation: text 2s ease-in-out 5;
 
         .main_title_letter {
             transition: 0.5s;
@@ -372,6 +369,26 @@ body {
     }
 
     /* main input_end */
+}
+
+@keyframes text {
+    0%, 100% {
+        transform: translateX(0);
+        color: $primary_color_gold;
+        opacity: 1;
+    }
+    20% {
+        transform: translateX(-5px);
+        opacity: 0.9;
+    }
+    40% {
+        transform: translateX(5px);
+        opacity: 0.9;
+    }
+    60%, 80% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .main_section_card_city_weather {

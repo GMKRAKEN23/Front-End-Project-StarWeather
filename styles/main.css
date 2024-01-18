@@ -87,7 +87,7 @@ table {
   color: #222223;
 }
 .article_code_qr .bx-x:hover {
-  color: #fcfcf1;
+  color: #34c5f0;
 }
 .article_code_qr .article_code_qr_container {
   display: flex;
@@ -150,8 +150,9 @@ body.active_design_three {
 .header .header_logo .header_logo_link {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 .header .header_logo .header_logo_link .header_title {
   font-size: 1.5rem;
@@ -311,8 +312,10 @@ body.active_design_three {
   text-transform: capitalize;
   letter-spacing: 2px;
   text-align: center;
-  margin: 25px;
+  margin: 25px auto;
+  padding: 10px 0;
   transition: 0.5s;
+  animation: text 2s ease-in-out 5;
 }
 .main .main_title .main_title_letter {
   transition: 0.5s;
@@ -397,6 +400,25 @@ body.active_design_three {
   background: #c491f9;
 }
 
+@keyframes text {
+  0%, 100% {
+    transform: translateX(0);
+    color: #e8c888;
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(-5px);
+    opacity: 0.9;
+  }
+  40% {
+    transform: translateX(5px);
+    opacity: 0.9;
+  }
+  60%, 80% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 .main_section_card_city_weather {
   margin: 50px auto;
   width: 70%;
