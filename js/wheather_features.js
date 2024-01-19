@@ -14,7 +14,7 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                 // Use API openweather and add city and API key
                 const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${inputCity}&appid=${APIKey}&units=metric`);
 
-                // await response of the data API and response in json
+                // Await response of the data API and response in json
                 const data = await response.json();
                 console.log(data);
 
@@ -78,81 +78,91 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                     humidity.innerHTML = `hum.: ${humidityValue} %`;
                     footerCard.appendChild(humidity);
 
-                    // Variables pour les éléments de design
+                    // Declare const class design
                     const boxDesignOne = document.getElementById('box_design_one');
                     const boxDesignTwo = document.getElementById('box_design_two');
                     const boxDesignThree = document.getElementById('box_design_three');
 
-                    // Tableau des éléments de design
+                    // Array of design elements
                     const boxDesigns = [boxDesignOne, boxDesignTwo, boxDesignThree];
 
                     // Variables pour les catégories, les classes de design et les chemins des logos
-                    const categories = ['main_section_card_city_weather_article', 'main_section_card_city_weather_article_date', 'main_section_card_city_weather_article_title', 'main_section_card_city_weather_article_footer_wind_speed', 'main_section_card_city_weather_article_footer_humidity'];
+                    const categories = [
+                        'main_section_card_city_weather_article',
+                        'main_section_card_city_weather_article_date',
+                        'main_section_card_city_weather_article_title',
+                        'main_section_card_city_weather_article_footer_wind_speed',
+                        'main_section_card_city_weather_article_footer_humidity'
+                    ];
 
+                    // Array index initialize to 0
                     const designs = ['active_design_one', 'active_design_two', 'active_design_three'];
-                    const defaultDesignIndex = 0; // Indice du design par défaut
+                    const defaultDesignIndex = 0;
 
-                    // Variable pour suivre le design actuel
+                    // Declare a variable to follow the current design
                     let currentDesignIndex = defaultDesignIndex;
 
-                    // Ajoutez des écouteurs d'événements pour chaque box_design
+                    // Add event listeners for each box_design
                     boxDesigns.forEach((boxDesign, index) => {
                         boxDesign.addEventListener('click', function () {
-                            // Appliquer le design uniquement si différent de l'actuel
+                            // Apply design only if different from current one
                             if (index !== currentDesignIndex) {
                                 applyDesign(index);
-                                currentDesignIndex = index; // Mettre à jour le design actuel
+                                currentDesignIndex = index;// Update current design
                             } else {
-                                // Si le design actuel est cliqué à nouveau, rétablir le design par défaut sans classes
+                                // If the current design is clicked again, revert to the default design without classes
                                 applyDefaultDesign();
-                                currentDesignIndex = defaultDesignIndex; // Réinitialiser au design par défaut
+                                currentDesignIndex = defaultDesignIndex; // Reset to default design
                             }
                         });
                     });
 
-                    function applyDefaultDesign() {
-                        categories.forEach(category => {
-                            const elements = document.querySelectorAll(`.${category}`);
-                            elements.forEach(element => {
-                                element.classList.remove(...designs);
-                            });
+                // Loops through the elements in the categories array and removes the classes to return the default design
+                function applyDefaultDesign() {
+                    categories.forEach(category => {
+                        const elements = document.querySelectorAll(`.${category}`);
+                        elements.forEach(element => {
+                            element.classList.remove(...designs);
                         });
-                    }
-
-                    function applyDesign(designIndex) {
-                        categories.forEach(category => {
-                            const elements = document.querySelectorAll(`.${category}`);
-                            elements.forEach(element => {
-                                element.classList.remove(...designs);
-                            });
-
-                            elements.forEach(element => {
-                                element.classList.add(designs[designIndex]);
-                            });
-                        });
-                    }
-
-                    if (forecastData.weather[0].main == "Clouds") {
-                        image.src = "asset/clouds.png";
-                    } else if (forecastData.weather[0].main == "Clear") {
-                        image.src = "asset/clear.png";
-                    } else if (forecastData.weather[0].main == "Rain") {
-                        image.src = "asset/rain.png";
-                    } else if (forecastData.weather[0].main == "Drizzle") {
-                        image.src = "asset/drizzle.png";
-                    } else if (forecastData.weather[0].main == "Mist") {
-                        image.src = "asset/mist.png";
-                    } else if (forecastData.weather[0].main == "Snow") {
-                        image.src = "asset/snow.png";
-                    }
+                    });
                 }
 
-            } catch (error) {
-                console.error('Error: ', error); // Show errors
-                alert('Please enter a valid city!');
+                // Applies a specific design to elements within different categories.
+                function applyDesign(designIndex) {
+                    categories.forEach(category => {
+                        const elements = document.querySelectorAll(`.${category}`);
+                        elements.forEach(element => {
+                            element.classList.remove(...designs);
+                        });
+
+                        elements.forEach(element => {
+                            element.classList.add(designs[designIndex]);
+                        });
+                    });
+                }
+
+                // Condition that changes the image based on weather data from the API
+                if (forecastData.weather[0].main == "Clouds") {
+                    image.src = "asset/clouds.png";
+                } else if (forecastData.weather[0].main == "Clear") {
+                    image.src = "asset/clear.png";
+                } else if (forecastData.weather[0].main == "Rain") {
+                    image.src = "asset/rain.png";
+                } else if (forecastData.weather[0].main == "Drizzle") {
+                    image.src = "asset/drizzle.png";
+                } else if (forecastData.weather[0].main == "Mist") {
+                    image.src = "asset/mist.png";
+                } else if (forecastData.weather[0].main == "Snow") {
+                    image.src = "asset/snow.png";
+                }
             }
-        } else {
-            alert('Please enter a city!');
+
+            } catch (error) {
+            console.error('Error: ', error); // Show errors
+            alert('Please enter a valid city!');
         }
+    } else {
+        alert('Please enter a city!');
     }
+}
 });

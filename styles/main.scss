@@ -73,13 +73,13 @@ body {
     transition: 0.5s;
 
     &.active_design_one {
-        background: $primary_color_black;
+        background: $primary_color_black; // choose your favorite color :)
     }
     &.active_design_two {
-        background: $primary_color_slate_blue;
+        background: $primary_color_slate_blue;  // choose your favorite color :)
     }
     &.active_design_three {
-        background: $primary_color_light_white;
+        background: $primary_color_white;  // choose your favorite color :)
     }
 }
 /* body_end */

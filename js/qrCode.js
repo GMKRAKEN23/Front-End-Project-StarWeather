@@ -10,6 +10,7 @@ let qrcode = new QRCode(document.getElementById("qrcode"), {
 	correctLevel: QRCode.CorrectLevel.H
 });
 
+// function to dynamically display qr code
 function displayCode() {
 	window.addEventListener('load', function () {
 
@@ -27,3 +28,5 @@ function displayCode() {
 }
 
 displayCode();
+
+export { containerCode, crossContainerCode,  qrcode, displayCode }
