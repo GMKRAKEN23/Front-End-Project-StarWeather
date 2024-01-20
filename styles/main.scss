@@ -376,6 +376,7 @@ body {
         width: 20%;
         height: 300px;
         margin: 10px;
+        display: block;
 
         &.active_design_one {
             border: $border_solid $border_width_3 $primary_color_pale_brown_gray;
@@ -398,6 +399,7 @@ body {
             .main_section_card_city_weather_article_date {
                 color: $primary_color_sky_blue;
                 font-weight: $font_weight_medium;
+                margin: auto;
 
                 &.active_design_one {
                     color: $primary_color_white;
@@ -490,3 +492,63 @@ body {
     /* Card_weather_city_end */
 }
 /* main_end */
+
+.section_chart{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.section_chart_container{
+    background: transparent;
+    border-radius: 25px;
+    width: 80%;
+    height: 300px;
+    display: none;
+    margin: auto;
+}
+
+.container_display_chart{
+    position: fixed;
+    cursor: pointer;
+    bottom: 10%;
+    left: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    color: $primary_color_white;
+    background: $primary_color_strong_blue;
+    border: solid 3px $primary_color_gold;
+    border-radius: 50%;
+    &.active_design_one {
+        background: $primary_color_pale_brown_gray;
+        border: solid 3px $primary_color_white;
+    }
+
+    &.active_design_two {
+        background: $primary_color_wheat;
+        border: solid 3px $primary_color_medium_turquoise;
+    }
+
+    &.active_design_three {
+        background: $primary_color_lilac;
+        border: solid 3px $primary_color_light_yellow;
+    }
+    i{
+        font-size: 2rem;
+        color: $primary_color_gold;
+        &.active_design_one {
+            color: $primary_color_white;
+        }
+
+        &.active_design_two {
+            color: $primary_color_medium_turquoise;
+        }
+
+        &.active_design_three {
+            color: $primary_color_navy_blue;
+        }
+    }
+}

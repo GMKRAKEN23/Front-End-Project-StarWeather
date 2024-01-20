@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -22,6 +23,12 @@
         <h2 class="article_code_qr_title">download app</h2>
     </article>
     <!-- qr_code_end -->
+
+    <!-- button_display_chart -->
+    <div class="container_display_chart">
+        <i class='bx bx-line-chart'></i>
+    </div>
+    <!-- button_display_chart_end -->
 
     <!-- header -->
     <header class="header">
@@ -68,11 +75,23 @@
             <option value="Rio de Janeiro"></option>
         </datalist>
         <!-- input_for_choose_city -->
-        <section class="main_section_card_city_weather"></section>            
+
+        <!-- section_card_city -->
+        <section class="main_section_card_city_weather">
+
+        </section>
+
+        <section class="section_chart">
+            <div class="section_chart_container">
+                <canvas id="myChart"></canvas>
+            </div>
+        </section>
+
+        <!-- section_card_city_end -->
     </main>
     <!-- main_end -->
     <script src="js/script.js" type="module"></script>
-    <script src="js/wheather_features.js"></script>
+    <script src="js/wheather_features.js" type="module"></script>
 </body>
 
 </html>

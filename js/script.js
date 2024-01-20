@@ -2,4 +2,4 @@ import { containerCode, crossContainerCode,  qrcode, displayCode } from './qrCod
 import { boxDesignOne, boxDesignTwo, boxDesignThree, 
     body, imgLogo, headerTitle, headerTitleS,headerTitleW, mainTitle,inputMain,
     titleAutorBy,titleAutor, containerPainting, paintingIcon, articleTitle,
-    designs, elementsToToggle, isLogoDefault, applyDesign} from './switchDesign.js';
+    designs, elementsToToggle, btnChart, iconChart, isLogoDefault, applyDesign} from './switchDesign.js';

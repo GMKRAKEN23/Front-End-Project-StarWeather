@@ -465,6 +465,7 @@ body.active_design_three {
   width: 20%;
   height: 300px;
   margin: 10px;
+  display: block;
   /* Card_weather_city_header */
   /* Card_weather_city_header_end */
   /* Card_weather_city_title */
@@ -493,6 +494,7 @@ body.active_design_three {
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_header .main_section_card_city_weather_article_date {
   color: #34c5f0;
   font-weight: 700;
+  margin: auto;
 }
 .main_section_card_city_weather .main_section_card_city_weather_article .main_section_card_city_weather_article_header .main_section_card_city_weather_article_date.active_design_one {
   color: #ffffff;
@@ -566,4 +568,59 @@ body.active_design_three {
   color: #002162;
 }
 
-/* main_end *//*# sourceMappingURL=main.css.map */
+/* main_end */
+.section_chart {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.section_chart_container {
+  background: transparent;
+  border-radius: 25px;
+  width: 80%;
+  height: 300px;
+  display: none;
+  margin: auto;
+}
+
+.container_display_chart {
+  position: fixed;
+  cursor: pointer;
+  bottom: 10%;
+  left: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  color: #ffffff;
+  background: #0b265b;
+  border: solid 3px #e8c888;
+  border-radius: 50%;
+}
+.container_display_chart.active_design_one {
+  background: #bfa599;
+  border: solid 3px #ffffff;
+}
+.container_display_chart.active_design_two {
+  background: #fbd792;
+  border: solid 3px #00cdd3;
+}
+.container_display_chart.active_design_three {
+  background: #c491f9;
+  border: solid 3px #ffd64a;
+}
+.container_display_chart i {
+  font-size: 2rem;
+  color: #e8c888;
+}
+.container_display_chart i.active_design_one {
+  color: #ffffff;
+}
+.container_display_chart i.active_design_two {
+  color: #00cdd3;
+}
+.container_display_chart i.active_design_three {
+  color: #002162;
+}/*# sourceMappingURL=main.css.map */

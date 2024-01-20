@@ -19,9 +19,12 @@ const containerPainting = document.querySelector('.header_painting_container');
 const paintingIcon = document.querySelector('.bxs-palette');
 const articleTitle = document.querySelector('.main_section_card_city_weather_article_title');
 
+const btnChart = document.querySelector('.container_display_chart');
+const iconChart = document.querySelector('.bx-line-chart');
+
 // Declare const designs for three class design
 const designs = ['active_design_one', 'active_design_two', 'active_design_three'];
-const elementsToToggle = [body, headerTitle, headerTitleS, headerTitleW, inputMain, mainTitle, titleAutorBy, titleAutor, containerPainting, paintingIcon];
+const elementsToToggle = [body, headerTitle, headerTitleS, headerTitleW, inputMain, mainTitle, titleAutorBy, titleAutor, containerPainting, paintingIcon, btnChart, iconChart];
 
 let isLogoDefault = true;
 
@@ -61,5 +64,5 @@ function applyDesign(activeClass, logoPath) {
 export {
   boxDesignOne, boxDesignTwo, boxDesignThree, 
   body, imgLogo, headerTitle, headerTitleS, headerTitleW, mainTitle,
-  inputMain, titleAutorBy, titleAutor, containerPainting, paintingIcon, articleTitle, designs, elementsToToggle, 
+  inputMain, titleAutorBy, titleAutor, containerPainting, paintingIcon, articleTitle, designs, elementsToToggle, btnChart, iconChart,
   isLogoDefault, applyDesign} 

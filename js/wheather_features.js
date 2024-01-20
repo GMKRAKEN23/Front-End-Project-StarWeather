@@ -1,6 +1,10 @@
+import { chartLabels, chartData, ctx, myChart } from './wheatherChart.js';
+
 document.getElementById('input_city').addEventListener('keypress', async function getWeather(event) {
     // Declare variable days of the week
     const daysWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    chartLabels.length = 0;
+    chartData.length = 0;
 
     if (event.key === 'Enter') {
         event.preventDefault(); // Prevents page from loading
@@ -24,11 +28,38 @@ document.getElementById('input_city').addEventListener('keypress', async functio
 
                 // Remove existing cards before adding new ones
                 const sectionCard = document.querySelector('.main_section_card_city_weather');
-                sectionCard.innerHTML = '';
+                Array.from(sectionCard.children).forEach(child => {
+                    if (child.classList.contains('main_section_card_city_weather_article')) {
+                        child.remove();
+                    }
+                });
 
+                let btnChart = document.querySelector('.container_display_chart');
+                let chart = document.querySelector('.section_chart_container');
+
+                btnChart.addEventListener('click', function () {
+                    console.log('click');
+
+                    // Vérifiez si des cartes de météo sont affichées avant d'afficher le graphique
+                    const sectionCard = document.querySelector('.main_section_card_city_weather');
+                    const cardsExist = sectionCard.children.length > 0;
+
+                    if (chart.style.display === "none" || chart.style.display === "") {
+                        if (cardsExist) {
+                            chart.style.display = "block";
+                        } else {
+                            alert('Veuillez d\'abord afficher les cartes météo de la ville.');
+                        }
+                    } else {
+                        chart.style.display = "none";
+                    }
+                });
+
+                const uniqueDates = new Set();
                 // Loop for create and add element weather for five days (five cards)
                 for (let i = 0; i < 5; i++) {
                     const forecastData = data.list[i * 8];
+                    const tempValue = Math.round(forecastData.main.temp);
 
                     // Create and add WeatherCard in the Section Card
                     const articleCard = document.createElement('article');
@@ -47,10 +78,15 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                     datePara.textContent = daysWeek[date.getDay()] + " " + forecastData.dt_txt.split(' ')[0];
                     headerCard.appendChild(datePara);
 
+                    chartLabels.push(`${daysWeek[date.getDay()]} ${forecastData.dt_txt.split(' ')[0]}`);
+
+                    // Add temperature to chartData
+                    chartData.push(tempValue);
+
                     // Create and add Title City in the ArticleCard
                     const title = document.createElement('h2');
                     title.className = 'main_section_card_city_weather_article_title';
-                    const tempValue = Math.round(forecastData.main.temp);
+
                     title.innerHTML = `${inputCity} ${tempValue} °C`;
                     articleCard.appendChild(title);
 
@@ -117,52 +153,56 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                         });
                     });
 
-                // Loops through the elements in the categories array and removes the classes to return the default design
-                function applyDefaultDesign() {
-                    categories.forEach(category => {
-                        const elements = document.querySelectorAll(`.${category}`);
-                        elements.forEach(element => {
-                            element.classList.remove(...designs);
+                    // Loops through the elements in the categories array and removes the classes to return the default design
+                    function applyDefaultDesign() {
+                        categories.forEach(category => {
+                            const elements = document.querySelectorAll(`.${category}`);
+                            elements.forEach(element => {
+                                element.classList.remove(...designs);
+                            });
                         });
-                    });
-                }
+                    }
 
-                // Applies a specific design to elements within different categories.
-                function applyDesign(designIndex) {
-                    categories.forEach(category => {
-                        const elements = document.querySelectorAll(`.${category}`);
-                        elements.forEach(element => {
-                            element.classList.remove(...designs);
+                    // Applies a specific design to elements within different categories.
+                    function applyDesign(designIndex) {
+                        categories.forEach(category => {
+                            const elements = document.querySelectorAll(`.${category}`);
+                            elements.forEach(element => {
+                                element.classList.remove(...designs);
+                            });
+
+                            elements.forEach(element => {
+                                element.classList.add(designs[designIndex]);
+                            });
                         });
+                    }
 
-                        elements.forEach(element => {
-                            element.classList.add(designs[designIndex]);
-                        });
-                    });
-                }
+                    // Condition that changes the image based on weather data from the API
+                    if (forecastData.weather[0].main == "Clouds") {
+                        image.src = "asset/clouds.png";
+                    } else if (forecastData.weather[0].main == "Clear") {
+                        image.src = "asset/clear.png";
+                    } else if (forecastData.weather[0].main == "Rain") {
+                        image.src = "asset/rain.png";
+                    } else if (forecastData.weather[0].main == "Drizzle") {
+                        image.src = "asset/drizzle.png";
+                    } else if (forecastData.weather[0].main == "Mist") {
+                        image.src = "asset/mist.png";
+                    } else if (forecastData.weather[0].main == "Snow") {
+                        image.src = "asset/snow.png";
+                    }
 
-                // Condition that changes the image based on weather data from the API
-                if (forecastData.weather[0].main == "Clouds") {
-                    image.src = "asset/clouds.png";
-                } else if (forecastData.weather[0].main == "Clear") {
-                    image.src = "asset/clear.png";
-                } else if (forecastData.weather[0].main == "Rain") {
-                    image.src = "asset/rain.png";
-                } else if (forecastData.weather[0].main == "Drizzle") {
-                    image.src = "asset/drizzle.png";
-                } else if (forecastData.weather[0].main == "Mist") {
-                    image.src = "asset/mist.png";
-                } else if (forecastData.weather[0].main == "Snow") {
-                    image.src = "asset/snow.png";
+                    myChart.data.labels = chartLabels;
+                    myChart.data.datasets[0].data = chartData;
+                    myChart.update();
                 }
-            }
 
             } catch (error) {
-            console.error('Error: ', error); // Show errors
-            alert('Please enter a valid city!');
+                console.error('Error: ', error); // Show errors
+                alert('Please enter a valid city!');
+            }
+        } else {
+            alert('Please enter a city!');
         }
-    } else {
-        alert('Please enter a city!');
     }
-}
 });
