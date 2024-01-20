@@ -10,7 +10,8 @@ her relies on the OpenWeatherMap API, allowing it to access weather information 
 3. SCSS
 4. JAVASCRIPT
 5. API OPENWEATHER
-6. CANVA
+6. CHART.JS LIBRARY
+7. CANVA
 ## Concept 
 a) BEM Methodology  
 a) Responsive Design  
