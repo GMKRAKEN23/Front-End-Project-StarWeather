@@ -19,6 +19,7 @@ const containerPainting = document.querySelector('.header_painting_container');
 const paintingIcon = document.querySelector('.bxs-palette');
 const articleTitle = document.querySelector('.main_section_card_city_weather_article_title');
 
+// Declare const chart
 const btnChart = document.querySelector('.container_display_chart');
 const iconChart = document.querySelector('.bx-line-chart');
 

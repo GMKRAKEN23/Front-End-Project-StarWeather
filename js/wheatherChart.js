@@ -1,8 +1,10 @@
+// Hand over the data up to date weather forecast
 const chartLabels = [];
 const chartData = [];
 
 const ctx = document.getElementById('myChart');
 
+// Weather graphics configuration
 const myChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -47,6 +49,7 @@ const myChart = new Chart(ctx, {
   }
 });
 
+// Change the height and width of the chart
 myChart.canvas.parentNode.style.height = '208px';
 myChart.canvas.parentNode.style.width = '368px';
 

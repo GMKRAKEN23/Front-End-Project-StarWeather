@@ -116,6 +116,51 @@ table {
 }
 
 /* article_qr_code_end */
+/* button_display_chart */
+.container_display_chart {
+  position: fixed;
+  cursor: pointer;
+  bottom: 10%;
+  left: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  color: #ffffff;
+  background: #0b265b;
+  border: solid 3px #e8c888;
+  border-radius: 50%;
+  animation: pulse 3s linear infinite;
+}
+.container_display_chart.active_design_one {
+  background: #bfa599;
+  border: solid 3px #ffffff;
+}
+.container_display_chart.active_design_two {
+  background: #fbd792;
+  border: solid 3px #00cdd3;
+}
+.container_display_chart.active_design_three {
+  background: #c491f9;
+  border: solid 3px #ffd64a;
+}
+.container_display_chart i {
+  font-size: 2rem;
+  color: #e8c888;
+}
+.container_display_chart i.active_design_one {
+  color: #ffffff;
+}
+.container_display_chart i.active_design_two {
+  color: #00cdd3;
+}
+.container_display_chart i.active_design_three {
+  color: #002162;
+}
+
+/* button_display_chart_end */
 /* body */
 body {
   width: 100%;
@@ -463,7 +508,8 @@ body.active_design_three {
   border: 3px solid #e8c888;
   min-width: 270px;
   width: 20%;
-  height: 300px;
+  height: auto;
+  padding: 5px 0;
   margin: 10px;
   display: block;
   /* Card_weather_city_header */
@@ -569,12 +615,12 @@ body.active_design_three {
 }
 
 /* main_end */
+/*  section_chart */
 .section_chart {
   width: 100%;
   margin-bottom: 20px;
 }
-
-.section_chart_container {
+.section_chart .section_chart_container {
   background: transparent;
   border-radius: 25px;
   width: 80%;
@@ -583,44 +629,4 @@ body.active_design_three {
   margin: auto;
 }
 
-.container_display_chart {
-  position: fixed;
-  cursor: pointer;
-  bottom: 10%;
-  left: 8%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  width: 55px;
-  height: 55px;
-  color: #ffffff;
-  background: #0b265b;
-  border: solid 3px #e8c888;
-  border-radius: 50%;
-}
-.container_display_chart.active_design_one {
-  background: #bfa599;
-  border: solid 3px #ffffff;
-}
-.container_display_chart.active_design_two {
-  background: #fbd792;
-  border: solid 3px #00cdd3;
-}
-.container_display_chart.active_design_three {
-  background: #c491f9;
-  border: solid 3px #ffd64a;
-}
-.container_display_chart i {
-  font-size: 2rem;
-  color: #e8c888;
-}
-.container_display_chart i.active_design_one {
-  color: #ffffff;
-}
-.container_display_chart i.active_design_two {
-  color: #00cdd3;
-}
-.container_display_chart i.active_design_three {
-  color: #002162;
-}/*# sourceMappingURL=main.css.map */
+/*  section_chart_end *//*# sourceMappingURL=main.css.map */

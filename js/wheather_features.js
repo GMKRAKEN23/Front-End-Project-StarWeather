@@ -40,7 +40,7 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                 btnChart.addEventListener('click', function () {
                     console.log('click');
 
-                    // Vérifiez si des cartes de météo sont affichées avant d'afficher le graphique
+                    // Check if weather maps are displayed before displaying the graph
                     const sectionCard = document.querySelector('.main_section_card_city_weather');
                     const cardsExist = sectionCard.children.length > 0;
 
@@ -122,7 +122,7 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                     // Array of design elements
                     const boxDesigns = [boxDesignOne, boxDesignTwo, boxDesignThree];
 
-                    // Variables pour les catégories, les classes de design et les chemins des logos
+                    // Variables for categories, design classes and logo paths
                     const categories = [
                         'main_section_card_city_weather_article',
                         'main_section_card_city_weather_article_date',
@@ -191,7 +191,7 @@ document.getElementById('input_city').addEventListener('keypress', async functio
                     } else if (forecastData.weather[0].main == "Snow") {
                         image.src = "asset/snow.png";
                     }
-
+                    
                     myChart.data.labels = chartLabels;
                     myChart.data.datasets[0].data = chartData;
                     myChart.update();
